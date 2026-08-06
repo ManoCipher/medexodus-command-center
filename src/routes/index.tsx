@@ -623,50 +623,64 @@ function Specialties() {
     },
   ];
 
-  const [flippedCard, setFlippedCard] = useState<number | null>(null);
+  const [poppedIdx, setPoppedIdx] = useState<number | null>(null);
 
   return (
-    <section id="specialties" className="py-28 border-y border-white/5">
+    <section id="specialties" className="py-28 border-y border-white/5 overflow-visible">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
           eyebrow="Specialty Expertise"
           title={<>Specialties We Support in <span className="text-gradient">Medical Coding</span></>}
-          sub="Our certified coders (CPC/CCS) master specialty-specific coding rules, NCCI edits, and payer policies. Click or hover over any card to view detailed coding nuances."
+          sub="Our certified coders (CPC/CCS) master specialty-specific coding rules, NCCI edits, and payer policies. Hover or tap any specialty card to pop it out and view full coding details."
         />
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-2">
           {items.map(({ i: Icon, t, desc }, idx) => {
-            const isFlipped = flippedCard === idx;
+            const isPopped = poppedIdx === idx;
+            const hasOtherPopped = poppedIdx !== null && !isPopped;
+
             return (
               <div 
                 key={idx} 
-                className="perspective-1000 h-52 cursor-pointer focus:outline-none"
-                onClick={() => setFlippedCard(isFlipped ? null : idx)}
-                onMouseEnter={() => setFlippedCard(idx)}
-                onMouseLeave={() => setFlippedCard(null)}
+                className={`relative min-h-[160px] cursor-pointer transition-all duration-300 ${
+                  hasOtherPopped ? "opacity-35 blur-[0.5px] scale-[0.97]" : "opacity-100"
+                }`}
+                onMouseEnter={() => setPoppedIdx(idx)}
+                onMouseLeave={() => setPoppedIdx(null)}
+                onClick={() => setPoppedIdx(isPopped ? null : idx)}
               >
-                <div className={`relative h-full w-full rounded-2xl transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
-                  {/* Front Face */}
-                  <div className="absolute inset-0 backface-hidden glass-card glass-card-hover rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4">
-                    <div className="flex h-13 w-13 items-center justify-center rounded-2xl bg-[color:var(--medical-blue)]/15 border border-[color:var(--medical-blue)]/30 text-[color:var(--cyan-glow)] shadow-[0_0_15px_rgba(34,211,238,0.15)]">
-                      <Icon className="h-6 w-6" />
+                <div 
+                  className={`glass-card rounded-2xl p-6 transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] flex flex-col justify-between ${
+                    isPopped
+                      ? "absolute inset-x-0 top-0 z-50 scale-110 sm:scale-120 -translate-y-2 bg-[color:var(--navy-surface)] border-[color:var(--cyan-glow)] ring-1 ring-[color:var(--cyan-glow)]/50 shadow-[0_0_25px_rgba(34,211,238,0.3),0_30px_60px_rgba(5,15,35,0.95)]"
+                      : "relative h-full border-white/10 hover:border-[color:var(--cyan-glow)]/40"
+                  }`}
+                >
+                  <div className="flex items-center gap-3.5 mb-3">
+                    <div className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-colors ${
+                      isPopped ? "bg-[color:var(--cyan-glow)] text-[color:var(--navy-deep)] shadow-[0_0_15px_rgba(34,211,238,0.3)]" : "bg-[color:var(--medical-blue)]/15 border border-[color:var(--medical-blue)]/30 text-[color:var(--cyan-glow)]"
+                    }`}>
+                      <Icon className="h-5.5 w-5.5" />
                     </div>
-                    <div className="font-display text-base font-semibold text-white leading-snug">{t}</div>
+                    <h3 className="font-display text-sm md:text-base font-semibold text-white leading-snug">{t}</h3>
                   </div>
 
-                  {/* Back Face */}
-                  <div className="absolute inset-0 backface-hidden rotate-y-180 glass-card rounded-2xl p-5 flex flex-col justify-between bg-[color:var(--navy-surface)] border-[color:var(--cyan-glow)]/40 shadow-[0_0_25px_rgba(34,211,238,0.2)] text-left">
-                    <div>
-                      <div className="text-xs font-semibold text-[color:var(--cyan-glow)] mb-2 flex items-center gap-2">
-                        <Icon className="h-4 w-4 shrink-0" />
-                        <span>{t}</span>
+                  {isPopped ? (
+                    <div className="animate-fade-up">
+                      <p className="text-xs sm:text-sm text-white/95 leading-relaxed mb-4 border-t border-white/10 pt-3 font-sans">
+                        {desc}
+                      </p>
+                      <div className="flex items-center justify-between text-[10px] uppercase font-mono tracking-widest text-[color:var(--cyan-glow)] border-t border-white/10 pt-2">
+                        <span>CPC / CCS Certified</span>
+                        <span className="flex items-center gap-1">Specialty Nuances <CheckCircle2 className="h-3 w-3" /></span>
                       </div>
-                      <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-sans">{desc}</p>
                     </div>
-                    <div className="mt-2 text-[10px] text-white/50 uppercase tracking-widest font-mono border-t border-white/10 pt-2 flex items-center justify-between">
-                      <span>CPC / CCS Verified</span>
-                      <span className="text-[color:var(--cyan-glow)]">Specialty Nuances</span>
+                  ) : (
+                    <div className="text-[11px] text-white/50 flex items-center justify-between font-mono pt-2 border-t border-white/5">
+                      <span>Certified Specialty</span>
+                      <span className="text-[color:var(--cyan-glow)]/70">Tap to expand →</span>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             );
