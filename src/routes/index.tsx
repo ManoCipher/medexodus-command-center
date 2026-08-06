@@ -633,36 +633,39 @@ function Specialties() {
           title={<>Specialties We Support in <span className="text-gradient">Medical Coding</span></>}
           sub="Our certified coders (CPC/CCS) master specialty-specific coding rules, NCCI edits, and payer policies. Click or hover over any card to view detailed coding nuances."
         />
-        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {items.map(({ i: Icon, t, desc }, idx) => {
             const isFlipped = flippedCard === idx;
             return (
               <div 
                 key={idx} 
-                className="perspective-1000 h-44 cursor-pointer focus:outline-none"
+                className="perspective-1000 h-52 cursor-pointer focus:outline-none"
                 onClick={() => setFlippedCard(isFlipped ? null : idx)}
                 onMouseEnter={() => setFlippedCard(idx)}
                 onMouseLeave={() => setFlippedCard(null)}
               >
                 <div className={`relative h-full w-full rounded-2xl transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
                   {/* Front Face */}
-                  <div className="absolute inset-0 backface-hidden glass-card glass-card-hover rounded-2xl p-5 flex flex-col items-center justify-center text-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[color:var(--medical-blue)]/15 border border-[color:var(--medical-blue)]/30 text-[color:var(--cyan-glow)]">
-                      <Icon className="h-5.5 w-5.5" />
+                  <div className="absolute inset-0 backface-hidden glass-card glass-card-hover rounded-2xl p-6 flex flex-col items-center justify-center text-center gap-4">
+                    <div className="flex h-13 w-13 items-center justify-center rounded-2xl bg-[color:var(--medical-blue)]/15 border border-[color:var(--medical-blue)]/30 text-[color:var(--cyan-glow)] shadow-[0_0_15px_rgba(34,211,238,0.15)]">
+                      <Icon className="h-6 w-6" />
                     </div>
-                    <div className="font-display text-sm font-semibold text-white/90 leading-snug">{t}</div>
-                    <div className="text-[10px] uppercase tracking-wider text-[color:var(--cyan-glow)]/70 font-medium">Hover for details →</div>
+                    <div className="font-display text-base font-semibold text-white leading-snug">{t}</div>
                   </div>
 
                   {/* Back Face */}
-                  <div className="absolute inset-0 backface-hidden rotate-y-180 glass-card rounded-2xl p-4 flex flex-col justify-between bg-[color:var(--navy-surface)] border-[color:var(--cyan-glow)]/40 shadow-[0_0_20px_rgba(34,211,238,0.15)] text-left">
+                  <div className="absolute inset-0 backface-hidden rotate-y-180 glass-card rounded-2xl p-5 flex flex-col justify-between bg-[color:var(--navy-surface)] border-[color:var(--cyan-glow)]/40 shadow-[0_0_25px_rgba(34,211,238,0.2)] text-left">
                     <div>
-                      <div className="text-[11px] font-semibold text-[color:var(--cyan-glow)] mb-1 flex items-center gap-1">
-                        <Icon className="h-3.5 w-3.5" /> {t}
+                      <div className="text-xs font-semibold text-[color:var(--cyan-glow)] mb-2 flex items-center gap-2">
+                        <Icon className="h-4 w-4 shrink-0" />
+                        <span>{t}</span>
                       </div>
-                      <p className="text-[11px] text-white/80 leading-relaxed line-clamp-5">{desc}</p>
+                      <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-sans">{desc}</p>
                     </div>
-                    <div className="text-[9px] text-white/40 uppercase tracking-widest font-mono">CPC / CCS Verified</div>
+                    <div className="mt-2 text-[10px] text-white/50 uppercase tracking-widest font-mono border-t border-white/10 pt-2 flex items-center justify-between">
+                      <span>CPC / CCS Verified</span>
+                      <span className="text-[color:var(--cyan-glow)]">Specialty Nuances</span>
+                    </div>
                   </div>
                 </div>
               </div>
