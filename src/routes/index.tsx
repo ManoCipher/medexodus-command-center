@@ -676,9 +676,8 @@ function Specialties() {
                       </div>
                     </div>
                   ) : (
-                    <div className="text-[11px] text-white/50 flex items-center justify-between font-mono pt-2 border-t border-white/5">
+                    <div className="text-[11px] text-white/50 font-mono pt-2 border-t border-white/5">
                       <span>Certified Specialty</span>
-                      <span className="text-[color:var(--cyan-glow)]/70">Tap to expand →</span>
                     </div>
                   )}
                 </div>
