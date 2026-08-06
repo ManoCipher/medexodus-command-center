@@ -192,3 +192,18 @@
 @utility animate-fade-up {
   animation: fade-up 0.7s cubic-bezier(.2,.7,.2,1) both;
 }
+
+@utility perspective-1000 {
+  perspective: 1000px;
+}
+@utility transform-style-3d {
+  transform-style: preserve-3d;
+}
+@utility backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+@utility rotate-y-180 {
+  transform: rotateY(180deg);
+}
+

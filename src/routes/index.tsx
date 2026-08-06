@@ -282,76 +282,387 @@ function Services() {
   const categories = [
     {
       title: "Front-Office Solutions",
+      desc: "Patient access, eligibility confirmation, and prior authorization workflows that resolve discrepancies before encounters occur.",
       items: [
-        { i: ShieldCheck, t: "Insurance Verification" },
-        { i: BadgeCheck, t: "Prior Authorization" },
-        { i: Users, t: "Patient Billing Support" },
-        { i: StethoscopeIcon, t: "Provider Support" },
+        { 
+          i: ShieldCheck, 
+          t: "Insurance Verification",
+          tag: "270/271 EDI",
+          desc: "Real-time 270/271 EDI transactions verify plan types (HMO/PPO/EPO), effective dates, COB order, deductible/out-of-pocket accumulators, and authorization flags before patient visits—resolving discrepancies same-day to prevent front-end denials." 
+        },
+        { 
+          i: BadgeCheck, 
+          t: "Prior Authorization",
+          tag: "278 EDI & LCD/NCD",
+          desc: "CPT/HCPCS codes are cross-walked against payer medical policies (LCD/NCD). Submissions with clinical documentation are tracked via 278 EDI or portal, with escalation to peer-to-peer review when requests are pended or denied." 
+        },
+        { 
+          i: Users, 
+          t: "Patient Billing Support",
+          tag: "HIPAA Compliant",
+          desc: "Patient-facing financial workflows—statement generation, balance inquiries, payment plan structuring, and financial counseling—reduce self-pay AR aging and bad-debt write-offs while maintaining strict HIPAA compliance." 
+        },
+        { 
+          i: StethoscopeIcon, 
+          t: "Provider Support",
+          tag: "Lightweight CDI",
+          desc: "A direct feedback loop between clinicians and coding/billing teams tied to specific payer documentation requirements, catching clinical documentation gaps at the point of care before claims are generated." 
+        },
       ]
     },
     {
       title: "Middle-Office Solutions",
+      desc: "Certified medical coding, documentation query management, and risk adjustment scoring to maximize clean claim acceptance.",
       items: [
-        { i: FileCheck2, t: "Medical Coding" },
-        { i: FileArchive, t: "Coding Audits" },
-        { i: Search, t: "Documentation Review" },
-        { i: TrendingUp, t: "HCC/Risk Adjustment Coding" },
-        { i: CheckSquare, t: "Quality Assurance" },
-        { i: ShieldCheck, t: "Credentialing Assistance" },
+        { 
+          i: FileCheck2, 
+          t: "Medical Coding",
+          tag: "CPC / CCS Certified",
+          desc: "CPC/CCS credentialed coders assign ICD-10-CM, CPT, and HCPCS Level II procedure codes based on clinical documentation, scrubbed against NCCI edits, MUE limits, and specialty-specific payer LCD/NCD coverage policies." 
+        },
+        { 
+          i: FileArchive, 
+          t: "Coding Audits",
+          tag: "OIG / CMS Focused",
+          desc: "Statistically representative sampling weighted toward high-dollar and high-denial-risk claim types drives prospective and retrospective audits against CMS/OIG Work Plan focus areas to catch systematic coding errors before RAC audits." 
+        },
+        { 
+          i: Search, 
+          t: "Documentation Review",
+          tag: "AHIMA / ACDIS",
+          desc: "Structured physician queries formatted to AHIMA/ACDIS guidelines close documentation gaps when clinical notes do not support required code specificity—legitimately capturing revenue without leading providers." 
+        },
+        { 
+          i: TrendingUp, 
+          t: "HCC / Risk Adjustment Coding",
+          tag: "CMS-HCC RAF Score",
+          desc: "Chronic condition coding under CMS-HCC risk models for Medicare Advantage and ACA pools. Suspect-condition analytics flag uncaptured chronic diagnoses from lab/claims data for chart-chase confirmation." 
+        },
+        { 
+          i: CheckSquare, 
+          t: "Quality Assurance",
+          tag: "3-Tier QA",
+          desc: "A tiered QA structure (coder self-audit, peer review, supervisor sign-off on high-value claims) tracks error taxonomies over time to eliminate recurring failure points across coders, payers, and CPT families." 
+        },
+        { 
+          i: ShieldCheck, 
+          t: "Credentialing Assistance",
+          tag: "CAQH & PECOS",
+          desc: "Provider enrollment and re-credentialing monitored via CAQH ProView, PECOS, and payer portals. Proactive expiration tracking ensures credential lapses never block clean claim payment." 
+        },
       ]
     },
     {
       title: "Back-Office Solutions",
+      desc: "End-to-end revenue capture, 837 claim submission, 835 payment posting, and aggressive CARC/RARC denial recovery.",
       items: [
-        { i: ClipboardList, t: "Medical Billing" },
-        { i: Activity, t: "AR Follow-Up" },
-        { i: AlertTriangle, t: "Denial Management" },
-        { i: CreditCard, t: "Payment Posting" },
-        { i: FileText, t: "Charge Entry" },
-        { i: LineChart, t: "Claims Submission" },
-        { i: Search, t: "Claims Scrubbing" },
-        { i: FileText, t: "Appeals & Reprocessing" },
-        { i: Building2, t: "Back-Office Support" },
-        { i: Settings, t: "Revenue Cycle Optimization" },
+        { 
+          i: ClipboardList, 
+          t: "Medical Billing",
+          tag: "837P / 837I EDI",
+          desc: "Full charge-to-cash lifecycle management: charge capture, 837P/837I EDI claim generation, clearinghouse submission, and payment reconciliation as a single coordinated workflow without siloed handoffs." 
+        },
+        { 
+          i: Activity, 
+          t: "AR Follow-Up",
+          tag: "0-90+ Days Aging",
+          desc: "Outstanding claims are worked by aging bucket (0-30 / 31-60 / 61-90 / 90+ days) with payer-specific follow-up cadences prioritized by dollar value and denial risk rather than flat FIFO queues." 
+        },
+        { 
+          i: AlertTriangle, 
+          t: "Denial Management",
+          tag: "CARC / RARC Root Cause",
+          desc: "Every denial is parsed by CARC/RARC codes and root-caused (eligibility, auth, coding, medical necessity, timely filing). Corrected claims are resubmitted, and patterns are fed back upstream to prevent recurrence." 
+        },
+        { 
+          i: CreditCard, 
+          t: "Payment Posting",
+          tag: "835 ERA Auto-Post",
+          desc: "835 ERA files auto-post against expected reimbursement with contracted-rate variance flagged instantly. Manual posting covers paper EOBs, exception cases, and credit-balance resolution." 
+        },
+        { 
+          i: FileText, 
+          t: "Charge Entry",
+          tag: "DOS Lag Reduction",
+          desc: "Charge reconciliation against encounter records minimizes lag between date of service and claim readiness—preventing timely-filing denials on slow-moving payers." 
+        },
+        { 
+          i: LineChart, 
+          t: "Claims Submission",
+          tag: "999 / 277CA Reports",
+          desc: "Electronic claims batched per payer companion guides. Clearinghouse acknowledgment (999/277CA) and rejection reports are monitored so front-end rejections are resolved within the same billing cycle." 
+        },
+        { 
+          i: Search, 
+          t: "Claims Scrubbing",
+          tag: "Pre-Submission Edits",
+          desc: "Automated edit logic verifies NCCI/MUE bundling rules, LCD/NCD coverage policy, and payer formatting requirements to eliminate errors before claims reach clearinghouse gateways." 
+        },
+        { 
+          i: FileText, 
+          t: "Appeals & Reprocessing",
+          tag: "Level 1 & 2 Appeals",
+          desc: "Formal Level 1 and 2 appeals prepared with clinical documentation, submitted within payer deadlines, with underpayments recovered through contracted-rate variance audits." 
+        },
+        { 
+          i: Building2, 
+          t: "Back-Office Support",
+          tag: "EOB & Lockbox Triage",
+          desc: "Correspondence triage, EOB/ERA reconciliation, lockbox matching, and general administrative processing keep revenue cycles running smoothly without client headcount additions." 
+        },
+        { 
+          i: Settings, 
+          t: "Revenue Cycle Optimization",
+          tag: "Executive Dashboards",
+          desc: "Recurring reviews of Days in A/R, denial rates, net collection rates, clean claim rates, and DNFB metrics to drive systemic process improvements across the revenue lifecycle." 
+        },
       ]
     }
   ];
-  
-  const [openCat, setOpenCat] = useState<number>(0);
+
+  const [activeCatIdx, setActiveCatIdx] = useState(0);
+  const [activeItemIdx, setActiveItemIdx] = useState(0);
+
+  const currentCat = categories[activeCatIdx];
+  const activeItem = currentCat.items[activeItemIdx] || currentCat.items[0];
 
   return (
     <section id="services" className="relative py-28">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Services"
+          eyebrow="Services & Solutions"
           title={<>Comprehensive End-to-End <span className="text-gradient">RCM Solutions</span></>}
-          sub="With a strong commitment to quality, performance, and client satisfaction, our experienced professionals deliver efficient, results-driven solutions tailored to each client’s requirements."
+          sub="Delivering scalable, HIPAA-compliant, and high-performance revenue cycle services tailored to US healthcare providers and payer requirements."
         />
-        <div className="mt-14 max-w-4xl space-y-4">
-          {categories.map((cat, idx) => {
-            const isOpen = openCat === idx;
-            return (
-              <div key={idx} className="glass-card rounded-2xl overflow-hidden transition-colors">
+
+        <div className="mt-12 flex flex-wrap gap-3">
+          {categories.map((cat, idx) => (
+            <button
+              key={idx}
+              onClick={() => {
+                setActiveCatIdx(idx);
+                setActiveItemIdx(0);
+              }}
+              className={`px-6 py-3 rounded-full text-sm font-semibold transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--cyan-glow)] ${
+                activeCatIdx === idx
+                  ? "bg-gradient-to-r from-[color:var(--cyan-glow)] to-[color:var(--medical-blue)] text-[color:var(--navy-deep)] shadow-[0_0_20px_rgba(34,211,238,0.25)]"
+                  : "bg-white/[0.04] border border-white/10 text-white/70 hover:text-white hover:bg-white/[0.08]"
+              }`}
+            >
+              {cat.title}
+            </button>
+          ))}
+        </div>
+
+        <div className="mt-8 grid lg:grid-cols-12 gap-8 items-start">
+          {/* Item Selector List */}
+          <div className="lg:col-span-5 space-y-2.5">
+            <div className="mb-4 text-xs font-semibold uppercase tracking-wider text-white/50 px-1">
+              Select a service to view technical depth:
+            </div>
+            {currentCat.items.map((item, idx) => {
+              const isSelected = activeItemIdx === idx;
+              const ItemIcon = item.i;
+              return (
                 <button
-                  onClick={() => setOpenCat(isOpen ? -1 : idx)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/[0.02] cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--cyan-glow)] transition-colors"
+                  key={idx}
+                  onClick={() => setActiveItemIdx(idx)}
+                  className={`w-full flex items-center justify-between p-4 rounded-xl text-left transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--cyan-glow)] ${
+                    isSelected
+                      ? "bg-[color:var(--medical-blue)]/20 border border-[color:var(--cyan-glow)]/50 text-white shadow-[0_0_15px_rgba(34,211,238,0.12)]"
+                      : "bg-white/[0.02] border border-white/5 text-white/70 hover:bg-white/[0.05] hover:text-white"
+                  }`}
                 >
-                  <h3 className="font-display text-xl font-semibold text-white">{cat.title}</h3>
-                  <ChevronRight className={`h-5 w-5 text-white/50 transition-transform duration-300 ${isOpen ? "rotate-90" : ""}`} />
+                  <div className="flex items-center gap-3.5">
+                    <div className={`flex h-9 w-9 items-center justify-center rounded-lg ${isSelected ? "bg-[color:var(--cyan-glow)] text-[color:var(--navy-deep)]" : "bg-[color:var(--cyan-glow)]/10 text-[color:var(--cyan-glow)]"}`}>
+                      <ItemIcon className="h-4.5 w-4.5" />
+                    </div>
+                    <span className="font-display text-sm font-medium">{item.t}</span>
+                  </div>
+                  <ChevronRight className={`h-4 w-4 transition-transform ${isSelected ? "text-[color:var(--cyan-glow)] translate-x-1" : "text-white/30"}`} />
                 </button>
-                <div 
-                  className="transition-all duration-300 ease-in-out" 
-                  style={{ maxHeight: isOpen ? "800px" : "0px", opacity: isOpen ? 1 : 0, overflow: "hidden" }}
-                >
-                  <div className="p-6 pt-2 border-t border-white/5 grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    {cat.items.map(({ i: Icon, t }, sIdx) => (
-                      <div key={sIdx} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[color:var(--cyan-glow)]/30 transition-colors">
-                        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[color:var(--cyan-glow)]/10 text-[color:var(--cyan-glow)] shrink-0">
-                          <Icon className="h-4 w-4" />
-                        </div>
-                        <div className="text-sm font-medium text-white/90">{t}</div>
+              );
+            })}
+          </div>
+
+          {/* Contextual Spotlight Panel */}
+          <div className="lg:col-span-7 sticky top-24">
+            <div className="glass-card ambient-glow rounded-3xl p-8 md:p-10 transition-all duration-300 min-h-[380px] flex flex-col justify-between">
+              <div>
+                <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-6 mb-6">
+                  <div className="flex items-center gap-4">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[color:var(--cyan-glow)]/15 border border-[color:var(--cyan-glow)]/30 text-[color:var(--cyan-glow)] shadow-[0_0_20px_rgba(34,211,238,0.2)]">
+                      {(() => {
+                        const Icon = activeItem.i;
+                        return <Icon className="h-7 w-7" />;
+                      })()}
+                    </div>
+                    <div>
+                      <div className="text-xs font-semibold uppercase tracking-wider text-[color:var(--cyan-glow)]">{currentCat.title}</div>
+                      <h3 className="font-display text-2xl font-semibold text-white mt-1">{activeItem.t}</h3>
+                    </div>
+                  </div>
+                  <span className="text-xs font-mono font-medium text-[color:var(--cyan-glow)] bg-[color:var(--cyan-glow)]/10 border border-[color:var(--cyan-glow)]/20 px-3 py-1 rounded-full whitespace-nowrap">
+                    {activeItem.tag}
+                  </span>
+                </div>
+
+                <p className="text-white/80 text-base md:text-lg leading-relaxed">
+                  {activeItem.desc}
+                </p>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-2 text-xs text-white/50">
+                  <CheckCircle2 className="h-4 w-4 text-[color:var(--cyan-glow)]" />
+                  <span>HIPAA Compliant & SLA Backed</span>
+                </div>
+                <a href="#contact" className="inline-flex items-center gap-1.5 text-xs font-semibold text-[color:var(--cyan-glow)] hover:underline">
+                  Inquire about this solution <ArrowRight className="h-3.5 w-3.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Specialties() {
+  const items = [
+    { 
+      i: Siren, 
+      t: "Emergency Department (ED)",
+      desc: "E/M leveling (99281–99285), trauma activations, and critical care time (99291/99292). High audit scrutiny due to leveling subjectivity." 
+    },
+    { 
+      i: Hospital, 
+      t: "IP-DRG",
+      desc: "Inpatient MS-DRG assignment, principal diagnosis selection, CC/MCC capture, and procedure sequencing directly driving facility reimbursement." 
+    },
+    { 
+      i: TrendingUp, 
+      t: "HCC / Risk Adjustment",
+      desc: "CMS-HCC chronic condition coding with suspect-condition analytics to optimize RAF scores for Medicare Advantage and ACA risk pools." 
+    },
+    { 
+      i: Syringe, 
+      t: "Surgery",
+      desc: "Modifier accuracy (-25, -51, -59, -RT/-LT), global-period compliance, and pre-submission NCCI bundling checks on multi-procedure claims." 
+    },
+    { 
+      i: ClipboardList, 
+      t: "Evaluation & Management",
+      desc: "Level-of-service coding under CMS MDM/time guidelines, balanced against audit risk from consistent over or under-leveling." 
+    },
+    { 
+      i: Activity, 
+      t: "Physical Therapy",
+      desc: "Unit-based 8-minute rule billing, therapy-specific modifiers (-GP, -59, -KX), and plan of care consistency across episodes." 
+    },
+    { 
+      i: Brain, 
+      t: "Behavioral Health",
+      desc: "Time-based psychotherapy codes (90832/90834/90837), add-on codes, and parity-law payer rule compliance." 
+    },
+    { 
+      i: Radiation, 
+      t: "Radiology",
+      desc: "Professional (-26) vs technical (-TC) component splits and modality coding (CT/MRI/US/interventional radiology)." 
+    },
+    { 
+      i: Pill, 
+      t: "Anesthesia",
+      desc: "Time-unit and base-unit calculations linked to surgical CPT codes, plus qualifying circumstance add-on coding." 
+    },
+    { 
+      i: Bone, 
+      t: "Orthopedics",
+      desc: "Global-period tracking across staged procedures and modifier sequencing on multi-site musculoskeletal claims." 
+    },
+    { 
+      i: HeartPulse, 
+      t: "Cardiology",
+      desc: "Cath-lab and interventional procedure bundling edits, plus device/implant coding checked against updated NCCI rules." 
+    },
+    { 
+      i: StethoscopeIcon, 
+      t: "Internal Medicine",
+      desc: "E/M and chronic care management (CCM) coding mix, surfacing CCM time-tracking revenue opportunities." 
+    },
+    { 
+      i: ScanFace, 
+      t: "Gastroenterology",
+      desc: "Screening vs diagnostic colonoscopy coding (modifier -33/-PT) determining patient cost-share under ACA rules." 
+    },
+    { 
+      i: ShieldCheck, 
+      t: "Dermatology",
+      desc: "Medical vs cosmetic service differentiation and lesion-based procedure coding (size, location, malignancy status)." 
+    },
+    { 
+      i: Baby, 
+      t: "Pediatrics",
+      desc: "Vaccine administration coding (CPT + CVX crosswalk) and age-banded well-child visit coding aligned to ACIP schedules." 
+    },
+    { 
+      i: Users, 
+      t: "Family Medicine",
+      desc: "Preventive visits, chronic disease management, and minor procedures coded precisely within single multi-service encounters." 
+    },
+    { 
+      i: Microscope, 
+      t: "Pathology",
+      desc: "Professional/technical component splits and specimen-level coding accuracy based on specimen count and complexity." 
+    },
+    { 
+      i: AlertTriangle, 
+      t: "Multi-specialty Denials",
+      desc: "Cross-department denial root-cause analysis surfacing systemic eligibility and coding gaps across multiple departments." 
+    },
+  ];
+
+  const [flippedCard, setFlippedCard] = useState<number | null>(null);
+
+  return (
+    <section id="specialties" className="py-28 border-y border-white/5">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="Specialty Expertise"
+          title={<>Specialties We Support in <span className="text-gradient">Medical Coding</span></>}
+          sub="Our certified coders (CPC/CCS) master specialty-specific coding rules, NCCI edits, and payer policies. Click or hover over any card to view detailed coding nuances."
+        />
+        <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+          {items.map(({ i: Icon, t, desc }, idx) => {
+            const isFlipped = flippedCard === idx;
+            return (
+              <div 
+                key={idx} 
+                className="perspective-1000 h-44 cursor-pointer focus:outline-none"
+                onClick={() => setFlippedCard(isFlipped ? null : idx)}
+                onMouseEnter={() => setFlippedCard(idx)}
+                onMouseLeave={() => setFlippedCard(null)}
+              >
+                <div className={`relative h-full w-full rounded-2xl transition-transform duration-500 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
+                  {/* Front Face */}
+                  <div className="absolute inset-0 backface-hidden glass-card glass-card-hover rounded-2xl p-5 flex flex-col items-center justify-center text-center gap-3">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[color:var(--medical-blue)]/15 border border-[color:var(--medical-blue)]/30 text-[color:var(--cyan-glow)]">
+                      <Icon className="h-5.5 w-5.5" />
+                    </div>
+                    <div className="font-display text-sm font-semibold text-white/90 leading-snug">{t}</div>
+                    <div className="text-[10px] uppercase tracking-wider text-[color:var(--cyan-glow)]/70 font-medium">Hover for details →</div>
+                  </div>
+
+                  {/* Back Face */}
+                  <div className="absolute inset-0 backface-hidden rotate-y-180 glass-card rounded-2xl p-4 flex flex-col justify-between bg-[color:var(--navy-surface)] border-[color:var(--cyan-glow)]/40 shadow-[0_0_20px_rgba(34,211,238,0.15)] text-left">
+                    <div>
+                      <div className="text-[11px] font-semibold text-[color:var(--cyan-glow)] mb-1 flex items-center gap-1">
+                        <Icon className="h-3.5 w-3.5" /> {t}
                       </div>
-                    ))}
+                      <p className="text-[11px] text-white/80 leading-relaxed line-clamp-5">{desc}</p>
+                    </div>
+                    <div className="text-[9px] text-white/40 uppercase tracking-widest font-mono">CPC / CCS Verified</div>
                   </div>
                 </div>
               </div>
@@ -363,44 +674,63 @@ function Services() {
   );
 }
 
-function Specialties() {
-  const items = [
-    { i: Siren, t: "Emergency Department (ED)" },
-    { i: Hospital, t: "IP-DRG" },
-    { i: TrendingUp, t: "HCC / Risk Adjustment" },
-    { i: Syringe, t: "Surgery" },
-    { i: ClipboardList, t: "Evaluation & Management" },
-    { i: Activity, t: "Physical Therapy" },
-    { i: Brain, t: "Behavioral Health" },
-    { i: Radiation, t: "Radiology" },
-    { i: Pill, t: "Anesthesia" },
-    { i: Bone, t: "Orthopedics" },
-    { i: HeartPulse, t: "Cardiology" },
-    { i: StethoscopeIcon, t: "Internal Medicine" },
-    { i: ScanFace, t: "Gastroenterology" },
-    { i: ShieldCheck, t: "Dermatology" },
-    { i: Baby, t: "Pediatrics" },
-    { i: Users, t: "Family Medicine" },
-    { i: Microscope, t: "Pathology" },
-    { i: AlertTriangle, t: "Multi-specialty Denials" },
+function AICodingShowcase() {
+  const features = [
+    {
+      icon: Cpu,
+      title: "NLP-Powered Code Suggestions",
+      desc: "Advanced Natural Language Processing parses unstructured EHR clinical notes to pre-suggest accurate ICD-10-CM, CPT, and HCPCS codes before human review.",
+      badge: "Speed & Velocity"
+    },
+    {
+      icon: CheckSquare,
+      title: "Human-in-the-Loop Validation",
+      desc: "CPC/CCS certified coders review and sign off on every AI suggestion. The AI handles data processing volume while certified experts provide clinical judgment.",
+      badge: "99%+ Accuracy"
+    },
+    {
+      icon: ShieldCheck,
+      title: "Pre-Submission Denial Prevention",
+      desc: "Automated pre-flight checks validate NCCI edits, MUE limits, LCD/NCD policy rules, and payer-specific formatting before claims enter clearinghouse gateways.",
+      badge: "Zero Rework"
+    }
   ];
+
   return (
-    <section id="specialties" className="py-28 border-y border-white/5">
+    <section className="py-20 relative overflow-hidden bg-white/[0.01]">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Specialties"
-          title={<>Specialties We Support in <span className="text-gradient">Coding</span></>}
-          sub="Our experienced professionals are trained in US healthcare workflows, payer guidelines, and medical coding standards across a wide variety of specialties."
-        />
-        <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
-          {items.map(({ i: Icon, t }, idx) => (
-            <div key={idx} className="glass-card glass-card-hover rounded-2xl p-5 flex flex-col items-center text-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[color:var(--medical-blue)]/15 border border-[color:var(--medical-blue)]/30 text-[color:var(--cyan-glow)]">
-                <Icon className="h-5 w-5" />
+        <div className="glass-card ambient-glow rounded-3xl p-8 md:p-12 border-[color:var(--cyan-glow)]/20">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-8 border-b border-white/10">
+            <div>
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-[color:var(--cyan-glow)] font-semibold">
+                <Sparkles className="h-4 w-4" /> AI Automation in Medical Coding
               </div>
-              <div className="font-display text-sm font-semibold text-white/90">{t}</div>
+              <h3 className="mt-2 font-display text-2xl md:text-3xl font-semibold text-white">
+                Augmenting Human Coders with <span className="text-gradient">Agentic AI Velocity</span>
+              </h3>
             </div>
-          ))}
+            <a href="#contact" className="inline-flex items-center gap-2 rounded-full bg-[color:var(--cyan-glow)]/10 hover:bg-[color:var(--cyan-glow)]/20 border border-[color:var(--cyan-glow)]/30 px-5 py-2.5 text-xs font-semibold text-[color:var(--cyan-glow)] transition-all shrink-0">
+              Request AI Demo <ArrowRight className="h-3.5 w-3.5" />
+            </a>
+          </div>
+
+          <div className="mt-8 grid md:grid-cols-3 gap-6">
+            {features.map((f, idx) => {
+              const FIcon = f.icon;
+              return (
+                <div key={idx} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-[color:var(--cyan-glow)]/30 transition-all group">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[color:var(--cyan-glow)]/10 text-[color:var(--cyan-glow)] group-hover:scale-110 transition-transform">
+                      <FIcon className="h-5 w-5" />
+                    </div>
+                    <span className="text-[10px] uppercase font-mono tracking-wider text-white/50 bg-white/5 px-2.5 py-1 rounded-full">{f.badge}</span>
+                  </div>
+                  <h4 className="font-display font-semibold text-white text-base mb-2">{f.title}</h4>
+                  <p className="text-xs text-white/65 leading-relaxed">{f.desc}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
@@ -609,11 +939,44 @@ function CTA() {
 
 function Footer() {
   const cols = [
-    { h: "Company", l: ["About", "Leadership", "Careers", "Press"] },
-    { h: "Services", l: ["Medical Coding", "Billing", "Denial Mgmt", "AR Follow-up"] },
-    { h: "Industries", l: ["Hospitals", "Physician Groups", "Clinics", "Ambulatory"] },
-    { h: "Legal", l: ["Privacy", "Terms", "HIPAA Notice", "Security"] },
+    { 
+      h: "Company", 
+      l: [
+        { name: "About", href: "#home" },
+        { name: "Leadership", href: "#contact" },
+        { name: "Careers", href: "#contact" },
+        { name: "Press", href: "#contact" }
+      ] 
+    },
+    { 
+      h: "Services", 
+      l: [
+        { name: "Medical Coding", href: "#services" },
+        { name: "Medical Billing", href: "#services" },
+        { name: "Denial Mgmt", href: "#services" },
+        { name: "AR Follow-up", href: "#services" }
+      ] 
+    },
+    { 
+      h: "Industries", 
+      l: [
+        { name: "Hospitals", href: "#industries" },
+        { name: "Physician Groups", href: "#industries" },
+        { name: "Clinics", href: "#industries" },
+        { name: "Ambulatory", href: "#industries" }
+      ] 
+    },
+    { 
+      h: "Legal", 
+      l: [
+        { name: "Privacy Policy", href: "#contact" },
+        { name: "Terms of Service", href: "#contact" },
+        { name: "HIPAA Notice", href: "#contact" },
+        { name: "Security & SOC 2", href: "#contact" }
+      ] 
+    },
   ];
+
   return (
     <footer className="border-t border-white/5 bg-[color:var(--navy-deep)]/80 pt-20 pb-10">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -637,7 +1000,11 @@ function Footer() {
               <div className="text-xs uppercase tracking-[0.15em] text-white/40">{c.h}</div>
               <ul className="mt-4 space-y-2.5">
                 {c.l.map(x => (
-                  <li key={x}><a href="#" className="text-sm text-white/70 hover:text-[color:var(--cyan-glow)] transition-colors">{x}</a></li>
+                  <li key={x.name}>
+                    <a href={x.href} className="text-sm text-white/70 hover:text-[color:var(--cyan-glow)] transition-colors cursor-pointer">
+                      {x.name}
+                    </a>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -646,7 +1013,9 @@ function Footer() {
         <div className="mt-14 pt-6 border-t border-white/5 flex flex-wrap items-center justify-between gap-4 text-xs text-white/40">
           <div>© {new Date().getFullYear()} MedExodus Healthcare Solutions Pvt Ltd. All rights reserved.</div>
           <div className="flex items-center gap-4">
-            <span>HIPAA Compliant</span><span>SOC 2 Ready</span><span>U.S. Operations</span>
+            <span className="hover:text-white transition-colors">HIPAA Compliant</span>
+            <span className="hover:text-white transition-colors">SOC 2 Ready</span>
+            <span className="hover:text-white transition-colors">U.S. Operations</span>
           </div>
         </div>
       </div>
@@ -662,6 +1031,7 @@ function LandingPage() {
         <Hero />
         <Services />
         <Specialties />
+        <AICodingShowcase />
         <Industries />
         <Metrics />
         <CaseStudies />
@@ -671,3 +1041,4 @@ function LandingPage() {
     </div>
   );
 }
+
