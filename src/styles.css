@@ -4,6 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ─── Google Fonts: Plus Jakarta Sans (closest to Access Healthcare's Typekit font) ─── */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -13,69 +15,90 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
 
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
+  --color-background:          var(--background);
+  --color-foreground:          var(--foreground);
+  --color-card:                var(--card);
+  --color-card-foreground:     var(--card-foreground);
+  --color-popover:             var(--popover);
+  --color-popover-foreground:  var(--popover-foreground);
+  --color-primary:             var(--primary);
+  --color-primary-foreground:  var(--primary-foreground);
+  --color-secondary:           var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
+  --color-muted:               var(--muted);
+  --color-muted-foreground:    var(--muted-foreground);
+  --color-accent:              var(--accent);
+  --color-accent-foreground:   var(--accent-foreground);
+  --color-destructive:         var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
+  --color-border:              var(--border);
+  --color-input:               var(--input);
+  --color-ring:                var(--ring);
 
-  --color-cyan-glow: var(--cyan-glow);
-  --color-medical-blue: var(--medical-blue);
-  --color-navy-deep: var(--navy-deep);
-  --color-navy-surface: var(--navy-surface);
+  /* Access Healthcare–inspired custom tokens */
+  --color-ah-navy:       var(--ah-navy);
+  --color-ah-navy-dark:  var(--ah-navy-dark);
+  --color-ah-blue:       var(--ah-blue);
+  --color-ah-blue-light: var(--ah-blue-light);
+  --color-ah-text:       var(--ah-text);
+  --color-ah-muted:      var(--ah-muted);
+  --color-ah-bg:         var(--ah-bg);
+  --color-ah-bg-alt:     var(--ah-bg-alt);
+  --color-ah-border:     var(--ah-border);
+  --color-ah-badge-bg:   var(--ah-badge-bg);
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", "Inter", sans-serif;
+  /* Legacy tokens (kept for compatibility) */
+  --color-cyan-glow:    var(--ah-blue);
+  --color-medical-blue: var(--ah-navy);
+  --color-navy-deep:    var(--ah-navy-dark);
+  --color-navy-surface: var(--ah-navy);
+
+  --font-sans:    "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
-  --radius: 0.875rem;
+  --radius: 0.375rem; /* 6px — matching Access Healthcare's tighter radius */
 
-  --navy-deep: oklch(0.16 0.03 260);
-  --navy-surface: oklch(0.22 0.035 258);
-  --cyan-glow: oklch(0.82 0.16 210);
-  --medical-blue: oklch(0.62 0.18 245);
+  /* ── Access Healthcare Color Palette ── */
+  --ah-navy:        #003087;  /* Primary deep navy — navbar, headings */
+  --ah-navy-dark:   #002060;  /* Darker navy — footer, CTA bg */
+  --ah-blue:        #0066CC;  /* Accent / link blue */
+  --ah-blue-light:  #1A8FE3;  /* Lighter interactive blue */
+  --ah-text:        #111827;  /* Near-black body text */
+  --ah-muted:       #4B5563;  /* Secondary text */
+  --ah-bg:          #FFFFFF;  /* Page background */
+  --ah-bg-alt:      #F8F9FA;  /* Alternating section bg */
+  --ah-border:      #E5E7EB;  /* Borders */
+  --ah-badge-bg:    #EFF6FF;  /* Light blue badge background */
 
-  --background: oklch(0.16 0.03 260);
-  --foreground: oklch(0.97 0.01 240);
+  /* ── Tailwind theme tokens mapped ── */
+  --background:   #FFFFFF;
+  --foreground:   #111827;
 
-  --card: oklch(0.22 0.035 258 / 0.55);
-  --card-foreground: oklch(0.97 0.01 240);
-  --popover: oklch(0.20 0.035 258);
-  --popover-foreground: oklch(0.97 0.01 240);
+  --card:              #FFFFFF;
+  --card-foreground:   #111827;
+  --popover:           #FFFFFF;
+  --popover-foreground: #111827;
 
-  --primary: oklch(0.82 0.16 210);
-  --primary-foreground: oklch(0.14 0.03 260);
+  --primary:            #003087;
+  --primary-foreground: #FFFFFF;
 
-  --secondary: oklch(0.27 0.04 258);
-  --secondary-foreground: oklch(0.97 0.01 240);
+  --secondary:            #F3F4F6;
+  --secondary-foreground: #111827;
 
-  --muted: oklch(0.24 0.03 258);
-  --muted-foreground: oklch(0.72 0.03 240);
+  --muted:            #F9FAFB;
+  --muted-foreground: #6B7280;
 
-  --accent: oklch(0.62 0.18 245);
-  --accent-foreground: oklch(0.98 0.01 240);
+  --accent:            #0066CC;
+  --accent-foreground: #FFFFFF;
 
-  --destructive: oklch(0.65 0.22 25);
-  --destructive-foreground: oklch(0.98 0.01 240);
+  --destructive:            #DC2626;
+  --destructive-foreground: #FFFFFF;
 
-  --border: oklch(0.82 0.16 210 / 0.14);
-  --input: oklch(0.82 0.16 210 / 0.18);
-  --ring: oklch(0.82 0.16 210 / 0.5);
+  --border: #E5E7EB;
+  --input:  #E5E7EB;
+  --ring:   #003087;
 }
 
 @layer base {
@@ -86,125 +109,269 @@
     scroll-behavior: smooth;
   }
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-sans);
-    font-feature-settings: "cv02", "cv03", "cv04", "ss01";
+    background-color: #FFFFFF;
+    color: #111827;
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
-    background-image:
-      radial-gradient(ellipse 80% 50% at 20% -10%, oklch(0.62 0.18 245 / 0.22), transparent 60%),
-      radial-gradient(ellipse 60% 40% at 90% 10%, oklch(0.82 0.16 210 / 0.15), transparent 60%),
-      radial-gradient(ellipse 70% 50% at 50% 100%, oklch(0.62 0.18 245 / 0.10), transparent 60%);
-    background-attachment: fixed;
+    -moz-osx-font-smoothing: grayscale;
   }
-  h1, h2, h3, h4 {
-    font-family: var(--font-display);
-    letter-spacing: -0.02em;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    color: #111827;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
   }
+  h1 { font-size: clamp(2.25rem, 5vw, 3.25rem); }   /* 36–52px */
+  h2 { font-size: clamp(1.875rem, 3.5vw, 2.625rem); } /* 30–42px */
+  h3 { font-size: clamp(1.25rem, 2vw, 1.625rem); }   /* 20–26px */
+  h4 { font-size: 1.125rem; }                          /* 18px */
+  p  { font-size: 1rem; color: #4B5563; line-height: 1.7; }
+  a  { color: #0066CC; text-decoration: none; }
+  a:hover { color: #003087; }
 }
 
-@utility glass-card {
-  background: linear-gradient(180deg, oklch(0.97 0.01 240 / 0.05), oklch(0.97 0.01 240 / 0.02));
-  border: 1px solid oklch(0.82 0.16 210 / 0.14);
-  backdrop-filter: blur(18px) saturate(140%);
-  box-shadow:
-    0 1px 0 0 oklch(0.97 0.01 240 / 0.06) inset,
-    0 20px 40px -20px oklch(0.05 0.02 260 / 0.6);
+/* ─── Card Component ─── */
+@utility ah-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.06), 0 1px 2px -1px rgba(0,0,0,0.04);
+  transition: box-shadow 250ms ease, border-color 250ms ease, transform 250ms ease;
 }
 
-@utility glass-card-hover {
-  transition: transform 320ms cubic-bezier(.2,.7,.2,1), border-color 320ms, box-shadow 320ms;
+@utility ah-card-hover {
   &:hover {
-    transform: translateY(-4px);
-    border-color: oklch(0.82 0.16 210 / 0.35);
-    box-shadow:
-      0 1px 0 0 oklch(0.97 0.01 240 / 0.08) inset,
-      0 30px 60px -20px oklch(0.05 0.02 260 / 0.8),
-      0 0 40px -10px oklch(0.82 0.16 210 / 0.25);
+    border-color: #B8D4F0;
+    box-shadow: 0 4px 16px -4px rgba(0, 48, 135, 0.14), 0 2px 6px -2px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
   }
 }
 
+/* ─── Button Styles ─── */
+@utility btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #003087;
+  color: #FFFFFF;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.375rem;
+  border: 2px solid #003087;
+  cursor: pointer;
+  transition: background 200ms ease, box-shadow 200ms ease, transform 150ms ease;
+  &:hover {
+    background: #002060;
+    border-color: #002060;
+    box-shadow: 0 4px 14px rgba(0,48,135,0.3);
+    transform: translateY(-1px);
+  }
+}
+
+@utility btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #003087;
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.375rem;
+  border: 2px solid #003087;
+  cursor: pointer;
+  transition: background 200ms ease, color 200ms ease, transform 150ms ease;
+  &:hover {
+    background: #003087;
+    color: #FFFFFF;
+    transform: translateY(-1px);
+  }
+}
+
+/* ─── Section helpers ─── */
+@utility section-alt {
+  background-color: #F8F9FA;
+}
+
+/* ─── Badge / Eyebrow ─── */
+@utility ah-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: #EFF6FF;
+  color: #0066CC;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid #BFDBFE;
+}
+
+/* ─── Nav active state ─── */
+@utility nav-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.88);
+  transition: color 200ms ease;
+  &:hover {
+    color: #FFFFFF;
+  }
+}
+
+/* ─── Stat number ─── */
+@utility stat-number {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #003087;
+  line-height: 1;
+}
+
+/* ─── Icon circle ─── */
+@utility icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #EFF6FF;
+  color: #003087;
+  border-radius: 0.625rem;
+  border: 1px solid #BFDBFE;
+  flex-shrink: 0;
+}
+
+@utility icon-circle-active {
+  background: #003087;
+  color: #FFFFFF;
+  border-color: #003087;
+}
+
+/* ─── Divider line ─── */
+@utility section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #E5E7EB 20%, #E5E7EB 80%, transparent);
+}
+
+/* ─── Animations ─── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes count-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.04); }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes pop-in {
+  from { opacity: 0; transform: scale(0.92) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes specialty-pop {
+  from { opacity: 0; transform: scale(0.96) translateY(-4px); }
+  to   { opacity: 1; transform: scale(1.06) translateY(-8px); }
+}
+@keyframes card-rise {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-fade-up {
+  animation: fade-up 0.55s cubic-bezier(0.22, 0.6, 0.3, 1) both;
+}
+@utility animate-fade-in {
+  animation: fade-in 0.5s ease both;
+}
+@utility animate-slide-right {
+  animation: slide-in-right 0.5s cubic-bezier(0.22, 0.6, 0.3, 1) both;
+}
+@utility animate-pop-in {
+  animation: pop-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+@utility animate-card-rise {
+  animation: card-rise 0.6s cubic-bezier(0.22, 0.6, 0.3, 1) both;
+}
+
+/* ─── Specialty card pop-out (desktop hover) ─── */
+.specialty-grid {
+  --pop-z: 30;
+}
+.specialty-card-wrap {
+  position: relative;
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+.specialty-card-wrap.dimmed {
+  opacity: 0.35;
+  transform: scale(0.97);
+  pointer-events: none;
+}
+.specialty-card-inner {
+  position: relative;
+  transition: box-shadow 280ms ease, border-color 280ms ease, transform 300ms cubic-bezier(0.34,1.4,0.64,1);
+}
+/* Desktop: float the card up and scale on hover */
+@media (hover: hover) {
+  .specialty-card-wrap:hover .specialty-card-inner {
+    transform: scale(1.055) translateY(-8px);
+    box-shadow: 0 16px 48px rgba(0,48,135,0.18), 0 4px 12px rgba(0,0,0,0.08);
+    border-color: #003087 !important;
+    z-index: 40;
+    position: relative;
+  }
+}
+
+/* ─── Legacy utilities (kept so old class refs compile) ─── */
+@utility glass-card {
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.06);
+}
+@utility glass-card-hover {
+  transition: box-shadow 250ms ease, border-color 250ms ease, transform 250ms ease;
+  &:hover {
+    border-color: #B8D4F0;
+    box-shadow: 0 4px 16px -4px rgba(0,48,135,0.14);
+    transform: translateY(-2px);
+  }
+}
 @utility grid-overlay {
   background-image:
-    linear-gradient(oklch(0.82 0.16 210 / 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, oklch(0.82 0.16 210 / 0.06) 1px, transparent 1px);
-  background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 40%, transparent 100%);
+    linear-gradient(#E5E7EB 1px, transparent 1px),
+    linear-gradient(90deg, #E5E7EB 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 30%, transparent 100%);
+  opacity: 0.4;
 }
-
 @utility text-gradient {
-  background: linear-gradient(135deg, oklch(0.98 0.01 240) 0%, oklch(0.82 0.16 210) 60%, oklch(0.62 0.18 245) 100%);
+  background: linear-gradient(135deg, #003087 0%, #0066CC 60%, #1A8FE3 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-
 @utility glow-cyan {
-  box-shadow: 0 0 0 1px oklch(0.82 0.16 210 / 0.3), 0 0 40px -6px oklch(0.82 0.16 210 / 0.45);
+  box-shadow: 0 4px 14px rgba(0,48,135,0.25);
 }
-
 @utility ambient-glow {
-  position: relative;
-  &::before {
-    content: "";
-    position: absolute;
-    inset: -1px;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, oklch(0.82 0.16 210 / 0.6), transparent 40%, oklch(0.62 0.18 245 / 0.5));
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
-    pointer-events: none;
-  }
+  box-shadow: 0 0 0 1px #E5E7EB, 0 8px 32px -8px rgba(0,48,135,0.12);
 }
-
-@keyframes float-y {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.55; }
-  50% { opacity: 1; }
-}
-@keyframes particle-drift {
-  0% { transform: translate(0,0); opacity: 0; }
-  10% { opacity: 1; }
-  100% { transform: translate(var(--dx,20px), var(--dy,-120px)); opacity: 0; }
-}
-@keyframes fade-up {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-@utility animate-float {
-  animation: float-y 6s ease-in-out infinite;
-}
-@utility animate-float-slow {
-  animation: float-y 9s ease-in-out infinite;
-}
-@utility animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
-}
-@utility animate-fade-up {
-  animation: fade-up 0.7s cubic-bezier(.2,.7,.2,1) both;
-}
-
-@utility perspective-1000 {
-  perspective: 1000px;
-}
-@utility transform-style-3d {
-  transform-style: preserve-3d;
-}
+@utility animate-float { animation: none; }
+@utility animate-float-slow { animation: none; }
+@utility animate-pulse-glow { animation: none; }
+@utility perspective-1000 { perspective: 1000px; }
+@utility transform-style-3d { transform-style: preserve-3d; }
 @utility backface-hidden {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
-@utility rotate-y-180 {
-  transform: rotateY(180deg);
-}
-
+@utility rotate-y-180 { transform: rotateY(180deg); }
