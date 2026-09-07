@@ -59,7 +59,7 @@ function Nav() {
     on(); window.addEventListener("scroll", on, { passive: true });
     return () => window.removeEventListener("scroll", on);
   }, []);
-  const links = ["Home", "Services", "Specialties", "Industries", "Case Studies", "Contact"];
+  const links = ["Home", "Services", "Specialties", "Features", "Industries", "Case Studies", "Contact"];
   return (
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "backdrop-blur-xl bg-[color:var(--navy-deep)]/70 border-b border-white/5" : "bg-transparent"}`}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
@@ -821,6 +821,344 @@ function Industries() {
   );
 }
 
+function FeaturesShowcase() {
+  const [activeGroup, setActiveGroup] = useState(0);
+
+  const groups = [
+    {
+      label: "Front-Office",
+      color: "from-cyan-400 to-blue-500",
+      glow: "rgba(34,211,238,0.25)",
+      features: [
+        {
+          icon: ShieldCheck,
+          title: "Insurance Verification",
+          tag: "270/271 EDI",
+          tagColor: "text-cyan-400 bg-cyan-400/10 border-cyan-400/30",
+          desc: "Real-time eligibility checks — plan type, COB order, deductibles, copay, coinsurance, and auth flags — all resolved before the patient visit.",
+          bullets: ["HMO / PPO / EPO plan detection", "Effective date & termination check", "Deductible & OOP accumulators", "Authorization flags", "COB order verification"],
+          status: "Coming Soon",
+        },
+        {
+          icon: BadgeCheck,
+          title: "Prior Authorization",
+          tag: "278 EDI & LCD/NCD",
+          tagColor: "text-violet-400 bg-violet-400/10 border-violet-400/30",
+          desc: "CPT/HCPCS cross-walked against payer medical policies. Track 278 EDI submissions and escalate to peer-to-peer review when pended or denied.",
+          bullets: ["CPT/HCPCS policy cross-walk", "278 EDI submission tracking", "Clinical doc escalation", "Peer-to-peer review support", "Payer portal monitoring"],
+          status: "Coming Soon",
+        },
+        {
+          icon: Users,
+          title: "Patient Billing Support",
+          tag: "HIPAA Compliant",
+          tagColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/30",
+          desc: "Patient-facing financial workflows — statements, balance inquiries, payment plans, and financial counseling to reduce self-pay AR and bad debt.",
+          bullets: ["Statement generation", "Balance inquiry portal", "Payment plan structuring", "Financial counseling", "Self-pay AR aging reduction"],
+          status: "Coming Soon",
+        },
+        {
+          icon: StethoscopeIcon,
+          title: "Provider Support",
+          tag: "Lightweight CDI",
+          tagColor: "text-orange-400 bg-orange-400/10 border-orange-400/30",
+          desc: "A direct feedback loop between clinicians and billing teams — catching documentation gaps at the point of care before claims are generated.",
+          bullets: ["Point-of-care CDI alerts", "Payer-specific doc requirements", "Coder–provider feedback loop", "Denial prevention workflows", "Real-time coding support"],
+          status: "Coming Soon",
+        },
+      ],
+    },
+    {
+      label: "Middle-Office",
+      color: "from-violet-400 to-purple-600",
+      glow: "rgba(167,139,250,0.25)",
+      features: [
+        {
+          icon: FileCheck2,
+          title: "Medical Coding",
+          tag: "CPC / CCS Certified",
+          tagColor: "text-cyan-400 bg-cyan-400/10 border-cyan-400/30",
+          desc: "CPC/CCS credentialed coders assign ICD-10-CM, CPT, and HCPCS codes scrubbed against NCCI edits, MUE limits, and payer LCD/NCD policies.",
+          bullets: ["ICD-10-CM / CPT / HCPCS", "NCCI edit scrubbing", "MUE limit checks", "LCD / NCD policy compliance", "Specialty-specific coding"],
+          status: "Coming Soon",
+        },
+        {
+          icon: FileArchive,
+          title: "Coding Audits",
+          tag: "OIG / CMS Focused",
+          tagColor: "text-red-400 bg-red-400/10 border-red-400/30",
+          desc: "Statistically representative sampling weighted to high-dollar, high-denial-risk claim types drives prospective and retrospective audits against CMS/OIG Work Plan focus areas.",
+          bullets: ["Prospective & retrospective audits", "OIG Work Plan alignment", "High-denial-risk sampling", "RAC audit preparation", "Systematic error detection"],
+          status: "Coming Soon",
+        },
+        {
+          icon: Search,
+          title: "Documentation Review",
+          tag: "AHIMA / ACDIS",
+          tagColor: "text-amber-400 bg-amber-400/10 border-amber-400/30",
+          desc: "Structured physician queries formatted to AHIMA/ACDIS guidelines to close documentation gaps without leading providers.",
+          bullets: ["AHIMA-compliant queries", "Code specificity improvement", "Non-leading query format", "ACDIS best practices", "Query tracking & outcomes"],
+          status: "Coming Soon",
+        },
+        {
+          icon: TrendingUp,
+          title: "HCC / Risk Adjustment",
+          tag: "CMS-HCC RAF Score",
+          tagColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/30",
+          desc: "Chronic condition coding under CMS-HCC risk models for Medicare Advantage and ACA pools with suspect-condition analytics.",
+          bullets: ["CMS-HCC risk model coding", "RAF score optimization", "Medicare Advantage pools", "ACA risk pool support", "Suspect-condition analytics"],
+          status: "Coming Soon",
+        },
+        {
+          icon: CheckSquare,
+          title: "Quality Assurance",
+          tag: "3-Tier QA",
+          tagColor: "text-cyan-400 bg-cyan-400/10 border-cyan-400/30",
+          desc: "Tiered QA (self-audit → peer review → supervisor sign-off on high-value claims) tracks error taxonomies to eliminate recurring failure points.",
+          bullets: ["Self-audit layer", "Peer review process", "Supervisor sign-off", "Error taxonomy tracking", "Payer / CPT failure analysis"],
+          status: "Coming Soon",
+        },
+        {
+          icon: ShieldCheck,
+          title: "Credentialing Assistance",
+          tag: "CAQH & PECOS",
+          tagColor: "text-violet-400 bg-violet-400/10 border-violet-400/30",
+          desc: "Provider enrollment and re-credentialing monitored via CAQH ProView, PECOS, and payer portals. Proactive expiration tracking prevents payment blocks.",
+          bullets: ["CAQH ProView management", "PECOS enrollment", "Payer portal monitoring", "Expiration tracking", "Re-credentialing workflows"],
+          status: "Coming Soon",
+        },
+      ],
+    },
+    {
+      label: "Back-Office",
+      color: "from-emerald-400 to-teal-600",
+      glow: "rgba(52,211,153,0.25)",
+      features: [
+        {
+          icon: ClipboardList,
+          title: "Medical Billing",
+          tag: "837P / 837I EDI",
+          tagColor: "text-cyan-400 bg-cyan-400/10 border-cyan-400/30",
+          desc: "Full charge-to-cash lifecycle: charge capture, 837P/837I EDI claim generation, clearinghouse submission, and payment reconciliation in one workflow.",
+          bullets: ["Charge capture", "837P / 837I EDI generation", "Clearinghouse submission", "Payment reconciliation", "No siloed handoffs"],
+          status: "Coming Soon",
+        },
+        {
+          icon: Activity,
+          title: "AR Follow-Up",
+          tag: "0–90+ Days Aging",
+          tagColor: "text-orange-400 bg-orange-400/10 border-orange-400/30",
+          desc: "Claims worked by aging bucket (0–30 / 31–60 / 61–90 / 90+ days) with payer-specific cadences prioritized by dollar value and denial risk.",
+          bullets: ["Aging bucket segmentation", "Payer-specific cadences", "Dollar-value prioritization", "Denial-risk scoring", "Real-time AR visibility"],
+          status: "Coming Soon",
+        },
+        {
+          icon: AlertTriangle,
+          title: "Denial Management",
+          tag: "CARC / RARC Root Cause",
+          tagColor: "text-red-400 bg-red-400/10 border-red-400/30",
+          desc: "Every denial parsed by CARC/RARC codes and root-caused (eligibility, auth, coding, medical necessity, timely filing). Patterns fed back upstream to prevent recurrence.",
+          bullets: ["CARC / RARC parsing", "Root-cause categorization", "Corrected claim resubmission", "Upstream recurrence prevention", "Denial trend dashboards"],
+          status: "Coming Soon",
+        },
+        {
+          icon: CreditCard,
+          title: "Payment Posting",
+          tag: "835 ERA Auto-Post",
+          tagColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/30",
+          desc: "835 ERA files auto-post against expected reimbursement with contracted-rate variance flagged instantly. Manual posting covers paper EOBs and credit-balance resolution.",
+          bullets: ["835 ERA auto-posting", "Contracted-rate variance alerts", "Paper EOB manual posting", "Credit-balance resolution", "Exception handling"],
+          status: "Coming Soon",
+        },
+        {
+          icon: FileText,
+          title: "Charge Entry",
+          tag: "DOS Lag Reduction",
+          tagColor: "text-amber-400 bg-amber-400/10 border-amber-400/30",
+          desc: "Charge reconciliation against encounter records minimizes lag between date of service and claim readiness — preventing timely-filing denials.",
+          bullets: ["Encounter reconciliation", "DOS lag monitoring", "Timely-filing prevention", "Charge capture accuracy", "Daily reconciliation reports"],
+          status: "Coming Soon",
+        },
+        {
+          icon: LineChart,
+          title: "Claims Submission",
+          tag: "999 / 277CA Reports",
+          tagColor: "text-cyan-400 bg-cyan-400/10 border-cyan-400/30",
+          desc: "Electronic claims batched per payer companion guides. 999/277CA acknowledgment and rejection reports monitored for same-cycle resolution.",
+          bullets: ["Payer companion guide batching", "999 acknowledgment tracking", "277CA rejection monitoring", "Same-cycle resolution", "Clearinghouse reporting"],
+          status: "Coming Soon",
+        },
+        {
+          icon: Search,
+          title: "Claims Scrubbing",
+          tag: "Pre-Submission Edits",
+          tagColor: "text-violet-400 bg-violet-400/10 border-violet-400/30",
+          desc: "Automated edit logic verifies NCCI/MUE bundling rules, LCD/NCD coverage policy, and payer formatting to eliminate errors before clearinghouse gateways.",
+          bullets: ["NCCI bundling checks", "MUE limit validation", "LCD / NCD policy edits", "Payer format verification", "Pre-clearinghouse gateway checks"],
+          status: "Coming Soon",
+        },
+        {
+          icon: FileText,
+          title: "Appeals & Reprocessing",
+          tag: "Level 1 & 2 Appeals",
+          tagColor: "text-orange-400 bg-orange-400/10 border-orange-400/30",
+          desc: "Formal Level 1 and 2 appeals prepared with clinical documentation, submitted within payer deadlines, with underpayments recovered via contracted-rate audits.",
+          bullets: ["Level 1 & 2 appeal preparation", "Clinical documentation packaging", "Payer deadline tracking", "Underpayment recovery", "Contracted-rate variance audits"],
+          status: "Coming Soon",
+        },
+        {
+          icon: Settings,
+          title: "Revenue Cycle Optimization",
+          tag: "Executive Dashboards",
+          tagColor: "text-emerald-400 bg-emerald-400/10 border-emerald-400/30",
+          desc: "Recurring reviews of Days in A/R, denial rates, net collection rates, clean claim rates, and DNFB metrics to drive systemic process improvements.",
+          bullets: ["Days in A/R tracking", "Net collection rate monitoring", "Clean claim rate reporting", "DNFB metrics", "Executive-level dashboards"],
+          status: "Coming Soon",
+        },
+      ],
+    },
+  ];
+
+  const active = groups[activeGroup];
+
+  return (
+    <section id="features" className="py-28 relative overflow-hidden">
+      {/* Background glow */}
+      <div
+        className="absolute inset-0 -z-10 transition-all duration-700"
+        style={{
+          background: `radial-gradient(ellipse 70% 50% at 50% 0%, ${active.glow}, transparent 70%)`,
+        }}
+      />
+      <div className="absolute inset-0 -z-10 grid-overlay opacity-40" />
+
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <SectionHeading
+          eyebrow="Platform Features"
+          title={<>All RCM Capabilities, <span className="text-gradient">One Command Center</span></>}
+          sub="Every feature across Front, Middle, and Back-Office operations — built for real-world healthcare billing workflows. Platform launch coming soon."
+        />
+
+        {/* Group Tabs */}
+        <div className="mt-10 flex flex-wrap gap-3">
+          {groups.map((g, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveGroup(idx)}
+              className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--cyan-glow)] ${
+                activeGroup === idx
+                  ? `bg-gradient-to-r ${g.color} text-[color:var(--navy-deep)] shadow-lg`
+                  : "bg-white/[0.04] border border-white/10 text-white/70 hover:text-white hover:bg-white/[0.08]"
+              }`}
+            >
+              <span className={`h-2 w-2 rounded-full ${activeGroup === idx ? "bg-[color:var(--navy-deep)]" : "bg-white/30"}`} />
+              {g.label}
+              <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full ${activeGroup === idx ? "bg-black/20 text-[color:var(--navy-deep)]" : "bg-white/5 text-white/40"}`}>
+                {g.features.length} services
+              </span>
+            </button>
+          ))}
+        </div>
+
+        {/* Coming Soon Banner */}
+        <div className="mt-8 flex items-center gap-3 px-5 py-3 rounded-xl border border-[color:var(--cyan-glow)]/20 bg-[color:var(--cyan-glow)]/[0.04] w-fit">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-[color:var(--cyan-glow)] opacity-70 animate-ping" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[color:var(--cyan-glow)]" />
+          </span>
+          <span className="text-xs font-mono text-[color:var(--cyan-glow)]">
+            Platform in active development — all features shown are coming soon
+          </span>
+        </div>
+
+        {/* Feature Cards Grid */}
+        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {active.features.map((feat, idx) => {
+            const FIcon = feat.icon;
+            return (
+              <div
+                key={`${activeGroup}-${idx}`}
+                className="glass-card rounded-2xl p-6 flex flex-col gap-4 border-white/5 hover:border-[color:var(--cyan-glow)]/30 transition-all duration-300 group animate-fade-up"
+                style={{ animationDelay: `${idx * 40}ms` }}
+              >
+                {/* Header */}
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[color:var(--cyan-glow)]/10 border border-[color:var(--cyan-glow)]/20 text-[color:var(--cyan-glow)] group-hover:scale-110 group-hover:bg-[color:var(--cyan-glow)]/20 transition-all duration-300">
+                      <FIcon className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-sm font-semibold text-white leading-snug">{feat.title}</h3>
+                      <span className={`inline-block mt-1 text-[10px] font-mono font-medium px-2 py-0.5 rounded-full border ${feat.tagColor}`}>
+                        {feat.tag}
+                      </span>
+                    </div>
+                  </div>
+                  <span className="shrink-0 text-[9px] font-mono uppercase tracking-widest bg-white/5 border border-white/10 text-white/40 px-2 py-1 rounded-full">
+                    Soon
+                  </span>
+                </div>
+
+                {/* Description */}
+                <p className="text-xs text-white/65 leading-relaxed">{feat.desc}</p>
+
+                {/* Bullet list */}
+                <ul className="space-y-1.5 mt-auto">
+                  {feat.bullets.map((b, bi) => (
+                    <li key={bi} className="flex items-center gap-2 text-[11px] text-white/55">
+                      <CheckCircle2 className="h-3 w-3 shrink-0 text-[color:var(--cyan-glow)]/70" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Footer */}
+                <div className="pt-4 border-t border-white/5 flex items-center justify-between">
+                  <div className="flex items-center gap-1.5 text-[10px] text-white/40">
+                    <Lock className="h-3 w-3" />
+                    HIPAA Compliant
+                  </div>
+                  <span className="text-[10px] font-mono text-[color:var(--cyan-glow)]/60">
+                    {active.label} Solutions
+                  </span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* EDI Reference Footer */}
+        <div className="mt-14 glass-card rounded-2xl p-6 md:p-8">
+          <div className="text-xs uppercase tracking-[0.2em] text-[color:var(--cyan-glow)] font-semibold mb-5 flex items-center gap-2">
+            <span className="h-px w-8 bg-[color:var(--cyan-glow)]/60" />
+            EDI Transaction Reference
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            {[
+              { code: "270/271", name: "Eligibility Inquiry & Response", dir: "Provider ↔ Payer" },
+              { code: "278", name: "Prior Authorization", dir: "Provider ↔ Payer" },
+              { code: "276/277", name: "Claim Status", dir: "Provider ↔ Payer" },
+              { code: "837P/I", name: "Healthcare Claims", dir: "Provider → Payer" },
+              { code: "835", name: "Remittance Advice (ERA)", dir: "Payer → Provider" },
+              { code: "834", name: "Benefit Enrollment", dir: "Employer → Payer" },
+              { code: "820", name: "Premium Payment", dir: "Employer → Payer" },
+              { code: "999", name: "Acknowledgment", dir: "Clearinghouse → Provider" },
+              { code: "277CA", name: "Claim Acknowledgment", dir: "Clearinghouse → Provider" },
+              { code: "CAQH/PECOS", name: "Credentialing", dir: "Provider → Payer" },
+            ].map((t) => (
+              <div key={t.code} className="p-3 rounded-xl bg-white/[0.02] border border-white/5 hover:border-[color:var(--cyan-glow)]/20 transition-colors group">
+                <div className="font-mono text-sm font-bold text-[color:var(--cyan-glow)] group-hover:text-white transition-colors">{t.code}</div>
+                <div className="text-[11px] text-white/70 mt-1 leading-snug">{t.name}</div>
+                <div className="text-[10px] text-white/35 mt-1 font-mono">{t.dir}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Metrics() {
   const items = [
     { v: 36, s: "+", d: 0, label: "Healthcare Clients" },
@@ -1048,6 +1386,7 @@ function LandingPage() {
         <Services />
         <Specialties />
         <AICodingShowcase />
+        <FeaturesShowcase />
         <Industries />
         <Metrics />
         <CaseStudies />
