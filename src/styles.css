@@ -47,6 +47,9 @@
   --color-ah-border:     var(--ah-border);
   --color-ah-badge-bg:   var(--ah-badge-bg);
 
+  --color-gold-primary:  var(--gold-primary);
+  --color-gold-dark:     var(--gold-dark);
+
   /* Legacy tokens (kept for compatibility) */
   --color-cyan-glow:    var(--ah-blue);
   --color-medical-blue: var(--ah-navy);
@@ -60,17 +63,19 @@
 :root {
   --radius: 0.375rem; /* 6px — matching Access Healthcare's tighter radius */
 
-  /* ── Access Healthcare Color Palette ── */
-  --ah-navy:        #003087;  /* Primary deep navy — navbar, headings */
-  --ah-navy-dark:   #002060;  /* Darker navy — footer, CTA bg */
-  --ah-blue:        #0066CC;  /* Accent / link blue */
-  --ah-blue-light:  #1A8FE3;  /* Lighter interactive blue */
+  /* ── MedExodus Teal & Gold Color Palette ── */
+  --ah-navy:        #0D5C75;  /* Primary deep teal — navbar, headings */
+  --ah-navy-dark:   #063842;  /* Darker teal — footer, CTA bg */
+  --ah-blue:        #00A896;  /* Accent teal / turquoise */
+  --ah-blue-light:  #14B8A6;  /* Lighter interactive cyan-teal */
+  --gold-primary:   #D4AF37;  /* Gold / Bronze title accent */
+  --gold-dark:      #996515;  /* Darker gold gradient anchor */
   --ah-text:        #111827;  /* Near-black body text */
   --ah-muted:       #4B5563;  /* Secondary text */
   --ah-bg:          #FFFFFF;  /* Page background */
-  --ah-bg-alt:      #F8F9FA;  /* Alternating section bg */
-  --ah-border:      #E5E7EB;  /* Borders */
-  --ah-badge-bg:    #EFF6FF;  /* Light blue badge background */
+  --ah-bg-alt:      #F4F9F9;  /* Alternating section bg */
+  --ah-border:      #E2EED9;  /* Soft border */
+  --ah-badge-bg:    #E6F7F5;  /* Light teal badge background */
 
   /* ── Tailwind theme tokens mapped ── */
   --background:   #FFFFFF;
@@ -81,16 +86,16 @@
   --popover:           #FFFFFF;
   --popover-foreground: #111827;
 
-  --primary:            #003087;
+  --primary:            #0D5C75;
   --primary-foreground: #FFFFFF;
 
-  --secondary:            #F3F4F6;
+  --secondary:            #F4F9F9;
   --secondary-foreground: #111827;
 
   --muted:            #F9FAFB;
   --muted-foreground: #6B7280;
 
-  --accent:            #0066CC;
+  --accent:            #00A896;
   --accent-foreground: #FFFFFF;
 
   --destructive:            #DC2626;
@@ -98,7 +103,7 @@
 
   --border: #E5E7EB;
   --input:  #E5E7EB;
-  --ring:   #003087;
+  --ring:   #0D5C75;
 }
 
 @layer base {
@@ -155,19 +160,19 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: #003087;
+  background: #0D5C75;
   color: #FFFFFF;
   font-size: 0.875rem;
   font-weight: 600;
   padding: 0.625rem 1.5rem;
   border-radius: 0.375rem;
-  border: 2px solid #003087;
+  border: 2px solid #0D5C75;
   cursor: pointer;
   transition: background 200ms ease, box-shadow 200ms ease, transform 150ms ease;
   &:hover {
-    background: #002060;
-    border-color: #002060;
-    box-shadow: 0 4px 14px rgba(0,48,135,0.3);
+    background: #063842;
+    border-color: #063842;
+    box-shadow: 0 4px 14px rgba(13,92,117,0.35);
     transform: translateY(-1px);
   }
 }
@@ -177,16 +182,16 @@
   align-items: center;
   gap: 0.5rem;
   background: transparent;
-  color: #003087;
+  color: #0D5C75;
   font-size: 0.875rem;
   font-weight: 600;
   padding: 0.625rem 1.5rem;
   border-radius: 0.375rem;
-  border: 2px solid #003087;
+  border: 2px solid #0D5C75;
   cursor: pointer;
   transition: background 200ms ease, color 200ms ease, transform 150ms ease;
   &:hover {
-    background: #003087;
+    background: #0D5C75;
     color: #FFFFFF;
     transform: translateY(-1px);
   }
@@ -194,7 +199,7 @@
 
 /* ─── Section helpers ─── */
 @utility section-alt {
-  background-color: #F8F9FA;
+  background-color: #F4F9F9;
 }
 
 /* ─── Badge / Eyebrow ─── */
@@ -202,15 +207,30 @@
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  background: #EFF6FF;
-  color: #0066CC;
+  background: #E6F7F5;
+  color: #0D5C75;
   font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   padding: 0.3rem 0.75rem;
   border-radius: 999px;
-  border: 1px solid #BFDBFE;
+  border: 1px solid #99E2D8;
+}
+
+@utility ah-badge-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: #FFFDF0;
+  color: #B8860B;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid #F3E5AB;
 }
 
 /* ─── Nav active state ─── */
@@ -228,7 +248,7 @@
 @utility stat-number {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
-  color: #003087;
+  color: #0D5C75;
   line-height: 1;
 }
 
@@ -237,17 +257,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #EFF6FF;
-  color: #003087;
+  background: #E6F7F5;
+  color: #0D5C75;
   border-radius: 0.625rem;
-  border: 1px solid #BFDBFE;
+  border: 1px solid #99E2D8;
   flex-shrink: 0;
 }
 
 @utility icon-circle-active {
-  background: #003087;
+  background: #0D5C75;
   color: #FFFFFF;
-  border-color: #003087;
+  border-color: #0D5C75;
 }
 
 /* ─── Divider line ─── */
@@ -323,14 +343,14 @@
 @media (hover: hover) {
   .specialty-card-wrap:hover .specialty-card-inner {
     transform: scale(1.055) translateY(-8px);
-    box-shadow: 0 16px 48px rgba(0,48,135,0.18), 0 4px 12px rgba(0,0,0,0.08);
-    border-color: #003087 !important;
+    box-shadow: 0 16px 48px rgba(13,92,117,0.22), 0 4px 12px rgba(0,0,0,0.08);
+    border-color: #0D5C75 !important;
     z-index: 40;
     position: relative;
   }
 }
 
-/* ─── Legacy utilities (kept so old class refs compile) ─── */
+/* ─── Premium Card Utilities ─── */
 @utility glass-card {
   background: #FFFFFF;
   border: 1px solid #E5E7EB;
@@ -340,8 +360,8 @@
 @utility glass-card-hover {
   transition: box-shadow 250ms ease, border-color 250ms ease, transform 250ms ease;
   &:hover {
-    border-color: #B8D4F0;
-    box-shadow: 0 4px 16px -4px rgba(0,48,135,0.14);
+    border-color: #99E2D8;
+    box-shadow: 0 4px 16px -4px rgba(13,92,117,0.18);
     transform: translateY(-2px);
   }
 }
@@ -353,17 +373,35 @@
   mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, black 30%, transparent 100%);
   opacity: 0.4;
 }
+
+/* ─── Gradient Utilities ─── */
 @utility text-gradient {
-  background: linear-gradient(135deg, #003087 0%, #0066CC 60%, #1A8FE3 100%);
+  background: linear-gradient(135deg, #0D5C75 0%, #00A896 60%, #14B8A6 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
+
+@utility text-gold-gradient {
+  background: linear-gradient(135deg, #F3D266 0%, #C5932A 50%, #996515 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility text-gold {
+  color: #C5932A;
+}
+
+@utility text-teal {
+  color: #0D5C75;
+}
+
 @utility glow-cyan {
-  box-shadow: 0 4px 14px rgba(0,48,135,0.25);
+  box-shadow: 0 4px 14px rgba(0,168,150,0.3);
 }
 @utility ambient-glow {
-  box-shadow: 0 0 0 1px #E5E7EB, 0 8px 32px -8px rgba(0,48,135,0.12);
+  box-shadow: 0 0 0 1px #99E2D8, 0 8px 32px -8px rgba(13,92,117,0.16);
 }
 @utility animate-float { animation: none; }
 @utility animate-float-slow { animation: none; }

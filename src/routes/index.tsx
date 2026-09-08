@@ -88,22 +88,22 @@ function Nav() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "shadow-lg" : ""}`}
-      style={{ backgroundColor: "#003087" }}>
+      style={{ backgroundColor: "#063842", borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-14 sm:h-16 md:h-[68px] flex items-center justify-between gap-4">
         <a href="#" className="flex items-center gap-2.5 shrink-0">
-          <img src={logo} alt="MedExodus" className="h-8 sm:h-9 w-auto object-contain" />
-          <span style={{ fontFamily: '"Space Grotesk","Inter",sans-serif', fontWeight: 600, fontSize: "1.08rem", color: "#fff", letterSpacing: "-0.025em" }}>
-            Med<span style={{ color: "#1A8FE3" }}>Exodus</span>
+          <img src={logo} alt="MedExodus" className="h-9 sm:h-10 w-auto object-contain drop-shadow" />
+          <span style={{ fontFamily: '"Space Grotesk","Inter",sans-serif', fontWeight: 700, fontSize: "1.15rem", color: "#fff", letterSpacing: "-0.025em" }}>
+            Med<span style={{ color: "#F3D266" }}>Exodus</span>
           </span>
         </a>
 
         <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           {links.map(l => (
             <a key={l} href={`#${l.toLowerCase().replace(/ /g, "-")}`}
-              style={{ color: "rgba(255,255,255,0.82)", fontSize: "0.875rem", fontWeight: 500, transition: "color 180ms" }}
-              onMouseEnter={e => (e.currentTarget.style.color = "#fff")}
-              onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.82)")}>
+              style={{ color: "rgba(255,255,255,0.88)", fontSize: "0.875rem", fontWeight: 500, transition: "color 180ms" }}
+              onMouseEnter={e => (e.currentTarget.style.color = "#F3D266")}
+              onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.88)")}>
               {l}
             </a>
           ))}
@@ -111,10 +111,10 @@ function Nav() {
 
         <div className="flex items-center gap-2.5">
           <a href="#contact"
-            className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded whitespace-nowrap transition-all"
-            style={{ background: "#fff", color: "#003087" }}
-            onMouseEnter={e => { e.currentTarget.style.background = "#EFF6FF"; }}
-            onMouseLeave={e => { e.currentTarget.style.background = "#fff"; }}>
+            className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded whitespace-nowrap transition-all shadow-sm"
+            style={{ background: "#fff", color: "#0D5C75" }}
+            onMouseEnter={e => { e.currentTarget.style.background = "#FFFDF0"; e.currentTarget.style.color = "#996515"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = "#0D5C75"; }}>
             Get Consultation <ArrowRight className="h-3.5 w-3.5" />
           </a>
           <button onClick={() => setOpen(v => !v)}
@@ -127,7 +127,7 @@ function Nav() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="lg:hidden border-t border-white/10" style={{ backgroundColor: "#002060" }}>
+        <div className="lg:hidden border-t border-white/10" style={{ backgroundColor: "#04272E" }}>
           <div className="px-4 sm:px-6 py-3 flex flex-col">
             {links.map(l => (
               <a key={l} onClick={() => setOpen(false)}
@@ -139,7 +139,7 @@ function Nav() {
             ))}
             <a href="#contact" onClick={() => setOpen(false)}
               className="mt-3 mb-1 block text-center py-3 text-sm font-semibold rounded"
-              style={{ background: "#fff", color: "#003087" }}>
+              style={{ background: "#fff", color: "#0D5C75" }}>
               Request a Consultation
             </a>
           </div>
@@ -165,7 +165,7 @@ function StatPill({ label, value, delta }: { label: string; value: string; delta
       }}>
       <div>
         <div className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: "#6B7280" }}>{label}</div>
-        <div className="text-lg sm:text-xl font-bold mt-0.5" style={{ color: "#003087" }}>{value}</div>
+        <div className="text-lg sm:text-xl font-bold mt-0.5" style={{ color: "#0D5C75" }}>{value}</div>
       </div>
       {delta && (
         <span className="ml-auto text-[11px] font-bold px-2 py-0.5 rounded-full shrink-0"
@@ -180,12 +180,12 @@ function StatPill({ label, value, delta }: { label: string; value: string; delta
 function Hero() {
   return (
     <section id="home" className="relative overflow-hidden"
-      style={{ paddingTop: "3.5rem", background: "linear-gradient(135deg,#F0F5FF 0%,#E8F0FE 35%,#fff 75%)" }}>
+      style={{ paddingTop: "3.5rem", background: "linear-gradient(135deg,#E6F7F5 0%,#F4F9F9 45%,#fff 85%)" }}>
 
       {/* Subtle grid overlay */}
       <div className="absolute inset-0 pointer-events-none" style={{
-        backgroundImage: "linear-gradient(#C7D9F8 1px,transparent 1px),linear-gradient(90deg,#C7D9F8 1px,transparent 1px)",
-        backgroundSize: "52px 52px", opacity: 0.2,
+        backgroundImage: "linear-gradient(#99E2D8 1px,transparent 1px),linear-gradient(90deg,#99E2D8 1px,transparent 1px)",
+        backgroundSize: "52px 52px", opacity: 0.25,
       }} />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative">
@@ -193,17 +193,17 @@ function Hero() {
 
           {/* ── Left copy ── */}
           <FadeUp className="order-1">
-            <div className="ah-badge mb-5 sm:mb-6">
+            <div className="ah-badge-gold mb-5 sm:mb-6">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full rounded-full opacity-60 animate-ping" style={{ background: "#0066CC" }} />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full" style={{ background: "#0066CC" }} />
+                <span className="absolute inline-flex h-full w-full rounded-full opacity-60 animate-ping" style={{ background: "#C5932A" }} />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full" style={{ background: "#C5932A" }} />
               </span>
               Trusted Revenue Cycle Management Partner
             </div>
 
             <h1 style={{ color: "#111827", lineHeight: 1.08 }}>
-              Med<span style={{ color: "#003087" }}>Exodus</span>{" "}
-              <span className="text-gradient">Healthcare</span>{" "}Solutions
+              <span className="text-gold-gradient">MedExodus</span>{" "}
+              <span>Healthcare Solutions</span>
             </h1>
 
             <p className="mt-5 text-base sm:text-lg leading-relaxed" style={{ color: "#4B5563", maxWidth: "560px" }}>
@@ -228,8 +228,8 @@ function Hero() {
                 { i: LineChart, t: "RCM Specialists" },
               ].map(({ i: Icon, t }) => (
                 <div key={t} className="flex items-center gap-2 text-sm font-medium" style={{ color: "#374151" }}>
-                  <div className="flex h-6 w-6 items-center justify-center rounded shrink-0" style={{ background: "#EFF6FF" }}>
-                    <Icon className="h-3.5 w-3.5" style={{ color: "#003087" }} />
+                  <div className="flex h-6 w-6 items-center justify-center rounded shrink-0" style={{ background: "#E6F7F5" }}>
+                    <Icon className="h-3.5 w-3.5" style={{ color: "#0D5C75" }} />
                   </div>
                   {t}
                 </div>
@@ -242,7 +242,7 @@ function Hero() {
             {/* Large featured stat */}
             <FadeUp delay={60} className="col-span-2">
               <div className="ah-card rounded-2xl p-5 sm:p-6 flex items-center gap-6"
-                style={{ background: "linear-gradient(135deg,#003087 0%,#0050BE 100%)" }}>
+                style={{ background: "linear-gradient(135deg,#0D5C75 0%,#063842 100%)" }}>
                 <div>
                   <div className="text-[11px] font-bold uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.6)" }}>Active Clients</div>
                   <div className="text-4xl sm:text-5xl font-bold" style={{ color: "#fff", lineHeight: 1 }}>
@@ -252,7 +252,7 @@ function Hero() {
                 </div>
                 <div className="ml-auto flex items-end gap-0.5 h-14">
                   {[40, 55, 35, 70, 60, 82, 68, 90, 78, 96].map((h, i) => (
-                    <div key={i} className="w-2.5 sm:w-3 rounded-sm" style={{ height: `${h}%`, background: i >= 7 ? "#7DD3FC" : "rgba(255,255,255,0.25)" }} />
+                    <div key={i} className="w-2.5 sm:w-3 rounded-sm" style={{ height: `${h}%`, background: i >= 7 ? "#14B8A6" : "rgba(255,255,255,0.25)" }} />
                   ))}
                 </div>
               </div>
@@ -266,10 +266,10 @@ function Hero() {
             {/* EDI label strip */}
             <FadeUp delay={280} className="col-span-2">
               <div className="rounded-xl px-4 py-3 flex flex-wrap gap-2 sm:gap-3"
-                style={{ background: "#EFF6FF", border: "1px solid #BFDBFE" }}>
+                style={{ background: "#E6F7F5", border: "1px solid #99E2D8" }}>
                 {["270/271 EDI", "837P/I", "835 ERA", "278 PA", "CAQH/PECOS"].map(t => (
                   <span key={t} className="text-[11px] font-bold px-2.5 py-1 rounded-full"
-                    style={{ background: "#fff", color: "#003087", border: "1px solid #BFDBFE" }}>
+                    style={{ background: "#fff", color: "#0D5C75", border: "1px solid #99E2D8" }}>
                     {t}
                   </span>
                 ))}
@@ -292,7 +292,7 @@ function Hero() {
 function SH({ eyebrow, title, sub }: { eyebrow: string; title: React.ReactNode; sub?: string }) {
   return (
     <FadeUp className="max-w-3xl">
-      <div className="ah-badge mb-4">{eyebrow}</div>
+      <div className="ah-badge-gold mb-4">{eyebrow}</div>
       <h2 style={{ color: "#111827", fontWeight: 700 }}>{title}</h2>
       {sub && <p className="mt-4 text-base sm:text-lg leading-relaxed" style={{ color: "#4B5563" }}>{sub}</p>}
     </FadeUp>
@@ -435,7 +435,7 @@ function Services() {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SH eyebrow="Services & Solutions"
-          title={<>Comprehensive <span className="text-gradient">RCM Solutions</span></>}
+          title={<>Comprehensive <span className="text-gold-gradient">RCM Solutions</span></>}
           sub="Delivering scalable, HIPAA-compliant, and high-performance revenue cycle services tailored to US healthcare providers and payer requirements." />
 
         {/* Category tabs */}
@@ -444,13 +444,13 @@ function Services() {
             <button key={i} onClick={() => { setCatIdx(i); setItemIdx(0); setMobileOpen(null); }}
               className="px-4 sm:px-5 py-2 sm:py-2.5 rounded text-sm font-semibold transition-all cursor-pointer focus:outline-none flex items-center gap-2"
               style={catIdx === i
-                ? { background: "#003087", color: "#fff", border: "2px solid #003087" }
-                : { background: "#fff", color: "#003087", border: "2px solid #003087" }}
-              onMouseEnter={e => { if (catIdx !== i) e.currentTarget.style.background = "#EFF6FF"; }}
+                ? { background: "#0D5C75", color: "#fff", border: "2px solid #0D5C75" }
+                : { background: "#fff", color: "#0D5C75", border: "2px solid #0D5C75" }}
+              onMouseEnter={e => { if (catIdx !== i) e.currentTarget.style.background = "#E6F7F5"; }}
               onMouseLeave={e => { if (catIdx !== i) e.currentTarget.style.background = "#fff"; }}>
               <span>{c.label}</span>
               <span className="text-[11px] font-mono px-1.5 py-0.5 rounded-full"
-                style={catIdx === i ? { background: "rgba(255,255,255,0.2)", color: "#fff" } : { background: "#EFF6FF", color: "#003087" }}>
+                style={catIdx === i ? { background: "rgba(255,255,255,0.2)", color: "#fff" } : { background: "#E6F7F5", color: "#0D5C75" }}>
                 {c.items.length}
               </span>
             </button>
@@ -464,27 +464,27 @@ function Services() {
             const Icon = item.i;
             return (
               <div key={i} className="overflow-hidden rounded-xl transition-all duration-300"
-                style={{ border: isOpen ? "1px solid #003087" : "1px solid #E5E7EB", background: "#fff" }}>
+                style={{ border: isOpen ? "1px solid #0D5C75" : "1px solid #E5E7EB", background: "#fff" }}>
                 <button onClick={() => setMobileOpen(isOpen ? null : i)}
                   className="w-full flex items-center gap-3 p-4 text-left"
-                  style={{ background: isOpen ? "#EFF6FF" : "#fff" }}>
+                  style={{ background: isOpen ? "#E6F7F5" : "#fff" }}>
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
-                    style={isOpen ? { background: "#003087", color: "#fff" } : { background: "#EFF6FF", color: "#003087", border: "1px solid #BFDBFE" }}>
+                    style={isOpen ? { background: "#0D5C75", color: "#fff" } : { background: "#E6F7F5", color: "#0D5C75", border: "1px solid #99E2D8" }}>
                     <Icon className="h-4 w-4" />
                   </div>
-                  <span className="text-sm font-semibold flex-1 text-left" style={{ color: isOpen ? "#003087" : "#374151" }}>{item.t}</span>
+                  <span className="text-sm font-semibold flex-1 text-left" style={{ color: isOpen ? "#0D5C75" : "#374151" }}>{item.t}</span>
                   <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-300"
-                    style={{ color: isOpen ? "#003087" : "#9CA3AF", transform: isOpen ? "rotate(180deg)" : "none" }} />
+                    style={{ color: isOpen ? "#0D5C75" : "#9CA3AF", transform: isOpen ? "rotate(180deg)" : "none" }} />
                 </button>
                 {isOpen && (
                   <div className="px-4 pb-4 pt-1 animate-pop-in">
                     <span className="inline-block text-[10px] font-bold px-2 py-0.5 rounded-full mb-3"
-                      style={{ background: "#EFF6FF", color: "#003087", border: "1px solid #BFDBFE", fontFamily: "monospace" }}>
+                      style={{ background: "#E6F7F5", color: "#0D5C75", border: "1px solid #99E2D8", fontFamily: "monospace" }}>
                       {item.tag}
                     </span>
                     <p className="text-sm leading-relaxed" style={{ color: "#4B5563" }}>{item.desc}</p>
                     <div className="mt-4 pt-3" style={{ borderTop: "1px solid #E5E7EB" }}>
-                      <div className="text-[11px] font-bold uppercase tracking-wider mb-2" style={{ color: "#003087" }}>Key Capabilities</div>
+                      <div className="text-[11px] font-bold uppercase tracking-wider mb-2" style={{ color: "#0D5C75" }}>Key Capabilities</div>
                       <ul className="space-y-1.5">
                         {item.bullets.map((b, bi) => (
                           <li key={bi} className="flex items-center gap-2 text-xs" style={{ color: "#374151" }}>
@@ -495,7 +495,7 @@ function Services() {
                     </div>
                     <div className="mt-4 pt-3 flex items-center justify-between text-xs font-medium" style={{ borderTop: "1px solid #E5E7EB", color: "#6B7280" }}>
                       <span className="flex items-center gap-1.5"><CheckCircle2 className="h-3.5 w-3.5" style={{ color: "#059669" }} /> HIPAA Compliant & SLA Backed</span>
-                      <a href="#contact" className="font-bold flex items-center gap-1" style={{ color: "#003087" }}>Inquire <ArrowRight className="h-3.5 w-3.5" /></a>
+                      <a href="#contact" className="font-bold flex items-center gap-1" style={{ color: "#0D5C75" }}>Inquire <ArrowRight className="h-3.5 w-3.5" /></a>
                     </div>
                   </div>
                 )}
@@ -515,18 +515,18 @@ function Services() {
                 <button key={i} onClick={() => setItemIdx(i)}
                   className="w-full flex items-center justify-between p-3.5 rounded-xl text-left transition-all cursor-pointer focus:outline-none"
                   style={sel
-                    ? { background: "#EFF6FF", border: "1px solid #BFDBFE", boxShadow: "0 2px 8px rgba(0,48,135,0.08)" }
+                    ? { background: "#E6F7F5", border: "1px solid #99E2D8", boxShadow: "0 2px 8px rgba(0,48,135,0.08)" }
                     : { background: "#fff", border: "1px solid #E5E7EB" }}
                   onMouseEnter={e => { if (!sel) e.currentTarget.style.background = "#F8FAFF"; }}
                   onMouseLeave={e => { if (!sel) e.currentTarget.style.background = "#fff"; }}>
                   <div className="flex items-center gap-3">
                     <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
-                      style={sel ? { background: "#003087", color: "#fff" } : { background: "#EFF6FF", color: "#003087", border: "1px solid #BFDBFE" }}>
+                      style={sel ? { background: "#0D5C75", color: "#fff" } : { background: "#E6F7F5", color: "#0D5C75", border: "1px solid #99E2D8" }}>
                       <Icon className="h-4 w-4" />
                     </div>
-                    <span className="text-sm font-semibold" style={{ color: sel ? "#003087" : "#374151" }}>{item.t}</span>
+                    <span className="text-sm font-semibold" style={{ color: sel ? "#0D5C75" : "#374151" }}>{item.t}</span>
                   </div>
-                  <ChevronRight className="h-4 w-4 shrink-0" style={{ color: sel ? "#003087" : "#D1D5DB" }} />
+                  <ChevronRight className="h-4 w-4 shrink-0" style={{ color: sel ? "#0D5C75" : "#D1D5DB" }} />
                 </button>
               );
             })}
@@ -538,16 +538,16 @@ function Services() {
               <div className="flex items-start justify-between gap-4 pb-5 mb-5" style={{ borderBottom: "1px solid #E5E7EB" }}>
                 <div className="flex items-center gap-4">
                   <div className="flex h-13 w-13 shrink-0 items-center justify-center rounded-xl p-3"
-                    style={{ background: "#EFF6FF", color: "#003087", border: "1px solid #BFDBFE" }}>
+                    style={{ background: "#E6F7F5", color: "#0D5C75", border: "1px solid #99E2D8" }}>
                     {(() => { const Icon = active.i; return <Icon className="h-6 w-6" />; })()}
                   </div>
                   <div>
-                    <div className="text-xs font-bold uppercase tracking-wider" style={{ color: "#0066CC" }}>{cat.fullTitle}</div>
+                    <div className="text-xs font-bold uppercase tracking-wider" style={{ color: "#00A896" }}>{cat.fullTitle}</div>
                     <h3 className="text-xl font-bold mt-0.5" style={{ color: "#111827" }}>{active.t}</h3>
                   </div>
                 </div>
                 <span className="shrink-0 text-xs font-bold px-3 py-1 rounded-full mt-1"
-                  style={{ background: "#EFF6FF", color: "#003087", border: "1px solid #BFDBFE", fontFamily: "monospace" }}>
+                  style={{ background: "#E6F7F5", color: "#0D5C75", border: "1px solid #99E2D8", fontFamily: "monospace" }}>
                   {active.tag}
                 </span>
               </div>
@@ -555,7 +555,7 @@ function Services() {
 
               {/* Key Capabilities Grid */}
               <div className="mt-6 pt-5" style={{ borderTop: "1px solid #F3F4F6" }}>
-                <div className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "#003087" }}>
+                <div className="text-xs font-bold uppercase tracking-wider mb-3" style={{ color: "#0D5C75" }}>
                   Core Capabilities & Workflows
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -573,9 +573,9 @@ function Services() {
                   <CheckCircle2 className="h-4 w-4" style={{ color: "#059669" }} /> HIPAA Compliant & SLA Backed
                 </div>
                 <a href="#contact" className="inline-flex items-center gap-1.5 text-xs font-bold transition-colors"
-                  style={{ color: "#003087" }}
-                  onMouseEnter={e => e.currentTarget.style.color = "#0066CC"}
-                  onMouseLeave={e => e.currentTarget.style.color = "#003087"}>
+                  style={{ color: "#0D5C75" }}
+                  onMouseEnter={e => e.currentTarget.style.color = "#00A896"}
+                  onMouseLeave={e => e.currentTarget.style.color = "#0D5C75"}>
                   Inquire <ArrowRight className="h-3.5 w-3.5" />
                 </a>
               </div>
@@ -601,9 +601,9 @@ function Services() {
                 { code: "CAQH/PECOS", name: "Credentialing", dir: "Provider → Payer" },
               ].map((t) => (
                 <div key={t.code} className="ah-card rounded-lg p-3 transition-all cursor-default"
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#BFDBFE"; e.currentTarget.style.background = "#EFF6FF"; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "#99E2D8"; e.currentTarget.style.background = "#E6F7F5"; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = "#E5E7EB"; e.currentTarget.style.background = "#fff"; }}>
-                  <div className="font-mono text-sm font-bold" style={{ color: "#003087" }}>{t.code}</div>
+                  <div className="font-mono text-sm font-bold" style={{ color: "#0D5C75" }}>{t.code}</div>
                   <div className="text-xs mt-1 leading-snug" style={{ color: "#374151" }}>{t.name}</div>
                   <div className="text-[10px] mt-1 font-mono" style={{ color: "#9CA3AF" }}>{t.dir}</div>
                 </div>
@@ -649,8 +649,8 @@ function Specialties() {
       style={{ background: "#F8F9FA", borderTop: "1px solid #E5E7EB", borderBottom: "1px solid #E5E7EB" }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SH eyebrow="Specialty Expertise"
-          title={<>Specialties We Support in <span className="text-gradient">Medical Coding</span></>}
-          sub="Our certified coders (CPC/CCS) master specialty-specific coding rules, NCCI edits, and payer policies. Hover (desktop) or tap (mobile) any card for full coding details." />
+          title={<>Specialties We Support in <span className="text-gold-gradient">Medical Coding</span></>}
+          sub="Coders under explore services (CPC/CCS) master specialty-specific coding rules, NCCI edits, and payer policies. Hover (desktop) or tap (mobile) any card for full coding details." />
 
         <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-10 specialty-grid" style={{ isolation: "isolate" }}>
           {items.map(({ i: Icon, t, desc }, idx) => {
@@ -662,10 +662,10 @@ function Specialties() {
                 onMouseEnter={() => setActiveIdx(idx)}
                 onMouseLeave={() => setActiveIdx(null)}>
                 <div className="specialty-card-inner ah-card rounded-xl overflow-hidden"
-                  style={isActive ? { borderColor: "#003087" } : {}}>
+                  style={isActive ? { borderColor: "#0D5C75" } : {}}>
                   <div className="flex items-center gap-3 p-4 sm:p-5">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg transition-colors duration-200"
-                      style={isActive ? { background: "#003087", color: "#fff" } : { background: "#EFF6FF", color: "#003087", border: "1px solid #BFDBFE" }}>
+                      style={isActive ? { background: "#0D5C75", color: "#fff" } : { background: "#E6F7F5", color: "#0D5C75", border: "1px solid #99E2D8" }}>
                       <Icon className="h-5 w-5" />
                     </div>
                     <h3 className="text-sm font-bold leading-snug" style={{ color: "#111827" }}>{t}</h3>
@@ -678,7 +678,7 @@ function Specialties() {
                     <div className="px-4 sm:px-5 pb-4" style={{ borderTop: "1px solid #E5E7EB" }}>
                       <p className="text-xs leading-relaxed mt-3" style={{ color: "#4B5563" }}>{desc}</p>
                       <div className="mt-3 flex items-center justify-between text-[10px] font-bold uppercase tracking-widest pt-2"
-                        style={{ color: "#003087", borderTop: "1px solid #F3F4F6" }}>
+                        style={{ color: "#0D5C75", borderTop: "1px solid #F3F4F6" }}>
                         <span>CPC / CCS Certified</span>
                         <span className="flex items-center gap-1">Specialty <CheckCircle2 className="h-3 w-3" /></span>
                       </div>
@@ -704,16 +704,16 @@ function Specialties() {
             const isOpen = activeIdx === idx;
             return (
               <div key={idx} className="rounded-xl overflow-hidden transition-all duration-300"
-                style={{ border: isOpen ? "1px solid #003087" : "1px solid #E5E7EB", background: "#fff" }}>
+                style={{ border: isOpen ? "1px solid #0D5C75" : "1px solid #E5E7EB", background: "#fff" }}>
                 <button onClick={() => setActiveIdx(isOpen ? null : idx)}
                   className="w-full flex items-center gap-3 p-4 text-left">
                   <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg"
-                    style={isOpen ? { background: "#003087", color: "#fff" } : { background: "#EFF6FF", color: "#003087", border: "1px solid #BFDBFE" }}>
+                    style={isOpen ? { background: "#0D5C75", color: "#fff" } : { background: "#E6F7F5", color: "#0D5C75", border: "1px solid #99E2D8" }}>
                     <Icon className="h-4 w-4" />
                   </div>
-                  <span className="text-sm font-bold flex-1" style={{ color: isOpen ? "#003087" : "#111827" }}>{t}</span>
+                  <span className="text-sm font-bold flex-1" style={{ color: isOpen ? "#0D5C75" : "#111827" }}>{t}</span>
                   <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-300"
-                    style={{ color: isOpen ? "#003087" : "#9CA3AF", transform: isOpen ? "rotate(180deg)" : "none" }} />
+                    style={{ color: isOpen ? "#0D5C75" : "#9CA3AF", transform: isOpen ? "rotate(180deg)" : "none" }} />
                 </button>
                 <div style={{
                   maxHeight: isOpen ? "220px" : "0px",
@@ -722,7 +722,7 @@ function Specialties() {
                 }}>
                   <div className="px-4 pb-4" style={{ borderTop: "1px solid #E5E7EB" }}>
                     <p className="text-sm leading-relaxed mt-3" style={{ color: "#4B5563" }}>{desc}</p>
-                    <div className="mt-3 pt-2 text-[10px] font-bold uppercase tracking-widest" style={{ color: "#003087", borderTop: "1px solid #F3F4F6" }}>
+                    <div className="mt-3 pt-2 text-[10px] font-bold uppercase tracking-widest" style={{ color: "#0D5C75", borderTop: "1px solid #F3F4F6" }}>
                       CPC / CCS Certified Coder
                     </div>
                   </div>
@@ -751,14 +751,14 @@ function AICodingShowcase() {
     <section className="py-16 sm:py-20" style={{ background: "#fff" }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FadeUp>
-          <div className="rounded-2xl p-6 sm:p-8 lg:p-12" style={{ background: "#EFF6FF", border: "1px solid #BFDBFE" }}>
+          <div className="rounded-2xl p-6 sm:p-8 lg:p-12" style={{ background: "#E6F7F5", border: "1px solid #99E2D8" }}>
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-5 pb-6 sm:pb-8"
-              style={{ borderBottom: "1px solid #BFDBFE" }}>
+              style={{ borderBottom: "1px solid #99E2D8" }}>
               <div>
                 <div className="ah-badge mb-3"><Sparkles className="h-3.5 w-3.5" /> AI Automation in Medical Coding</div>
                 <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold" style={{ color: "#111827" }}>
                   Augmenting Human Coders with{" "}
-                  <span className="text-gradient">Agentic AI Velocity</span>
+                  <span className="text-gold-gradient">Agentic AI Velocity</span>
                 </h3>
               </div>
               <a href="#contact" className="btn-primary shrink-0 self-start sm:self-center">
@@ -772,11 +772,11 @@ function AICodingShowcase() {
                   <FadeUp key={idx} delay={idx * 80}>
                     <div className="ah-card ah-card-hover rounded-xl p-5 sm:p-6 h-full">
                       <div className="flex items-center justify-between mb-4">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-lg" style={{ background: "#DBEAFE", color: "#003087" }}>
+                        <div className="flex h-10 w-10 items-center justify-center rounded-lg" style={{ background: "#CCF1EC", color: "#0D5C75" }}>
                           <FIcon className="h-5 w-5" />
                         </div>
                         <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full"
-                          style={{ background: "#EFF6FF", color: "#003087", border: "1px solid #BFDBFE" }}>
+                          style={{ background: "#E6F7F5", color: "#0D5C75", border: "1px solid #99E2D8" }}>
                           {f.badge}
                         </span>
                       </div>
@@ -812,7 +812,7 @@ function Industries() {
   return (
     <section id="industries" className="py-16 sm:py-20 lg:py-24" style={{ background: "#F8F9FA", borderTop: "1px solid #E5E7EB" }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SH eyebrow="Industries" title={<>Healthcare Organizations <span className="text-gradient">We Serve</span></>}
+        <SH eyebrow="Industries" title={<>Healthcare Organizations <span className="text-gold-gradient">We Serve</span></>}
           sub="Our growing client network reflects our commitment to quality-focused delivery, HIPAA-compliant operations, operational efficiency, reliable partnerships, and scalable solutions." />
 
         <div className="mt-10 flex flex-col lg:flex-row gap-4 lg:gap-6">
@@ -825,16 +825,16 @@ function Industries() {
                   <button key={idx} onClick={() => setTab(idx)}
                     className="flex items-center gap-3 p-3 sm:p-3.5 text-left rounded-xl transition-all duration-200 cursor-pointer focus:outline-none shrink-0 lg:shrink lg:w-full"
                     style={isA
-                      ? { background: "#fff", border: "1px solid #BFDBFE", boxShadow: "0 2px 10px rgba(0,48,135,0.09)", minWidth: "170px" }
+                      ? { background: "#fff", border: "1px solid #99E2D8", boxShadow: "0 2px 10px rgba(0,48,135,0.09)", minWidth: "170px" }
                       : { background: "transparent", border: "1px solid transparent", minWidth: "170px" }}
                     onMouseEnter={e => { if (!isA) e.currentTarget.style.background = "#fff"; }}
                     onMouseLeave={e => { if (!isA) e.currentTarget.style.background = "transparent"; }}>
                     <div className="flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-lg"
-                      style={isA ? { background: "#003087", color: "#fff" } : { background: "#EFF6FF", color: "#003087", border: "1px solid #BFDBFE" }}>
+                      style={isA ? { background: "#0D5C75", color: "#fff" } : { background: "#E6F7F5", color: "#0D5C75", border: "1px solid #99E2D8" }}>
                       <item.icon className="h-4 w-4 sm:h-5 sm:w-5" />
                     </div>
                     <div>
-                      <div className="font-bold text-sm" style={{ color: isA ? "#003087" : "#374151" }}>{item.title}</div>
+                      <div className="font-bold text-sm" style={{ color: isA ? "#0D5C75" : "#374151" }}>{item.title}</div>
                       {item.desc && <div className="text-xs mt-0.5 hidden sm:block" style={{ color: "#6B7280" }}>{item.desc}</div>}
                     </div>
                   </button>
@@ -847,7 +847,7 @@ function Industries() {
           <div className="flex-1">
             <div className="ah-card rounded-2xl p-6 sm:p-8 lg:p-10" style={{ boxShadow: "0 4px 28px rgba(0,48,135,0.09)" }}>
               <div className="flex h-14 w-14 items-center justify-center rounded-xl mb-5"
-                style={{ background: "#EFF6FF", color: "#003087", border: "1px solid #BFDBFE" }}>
+                style={{ background: "#E6F7F5", color: "#0D5C75", border: "1px solid #99E2D8" }}>
                 {(() => { const Icon = items[tab].icon; return <Icon className="h-7 w-7" />; })()}
               </div>
               <h3 className="text-xl sm:text-2xl font-bold mb-5" style={{ color: "#111827" }}>
@@ -883,15 +883,15 @@ function Metrics() {
     { v: 100, s: "%", d: 0, label: "HIPAA Aware" },
   ];
   return (
-    <section className="py-14 sm:py-16 lg:py-20" style={{ background: "#003087" }}>
+    <section className="py-14 sm:py-16 lg:py-20" style={{ background: "linear-gradient(135deg,#063842 0%,#0D5C75 100%)", borderTop: "1px solid rgba(212,175,55,0.25)", borderBottom: "1px solid rgba(212,175,55,0.25)" }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 md:gap-4">
           {items.map((m, idx) => (
             <div key={m.label} className={`text-center ${idx === 4 ? "col-span-2 sm:col-span-1" : ""}`}>
-              <div className="font-bold" style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "clamp(1.85rem,4vw,2.875rem)", color: "#fff", lineHeight: 1 }}>
+              <div className="font-bold" style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: "clamp(2rem,4.5vw,3rem)", color: "#F3D266", lineHeight: 1 }}>
                 <Counter to={m.v} suffix={m.s} decimals={m.d} />
               </div>
-              <div className="mt-2 text-xs sm:text-sm font-medium" style={{ color: "rgba(255,255,255,0.70)", letterSpacing: "0.04em" }}>{m.label}</div>
+              <div className="mt-2.5 text-xs sm:text-sm font-semibold uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.85)" }}>{m.label}</div>
             </div>
           ))}
         </div>
@@ -916,20 +916,20 @@ function CaseStudies() {
     <section id="case-studies" className="py-16 sm:py-20 lg:py-24" style={{ background: "#fff", borderTop: "1px solid #E5E7EB" }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SH eyebrow="Case Studies & Success Stories"
-          title={<>Revenue Cycle Improvement for a <span className="text-gradient">Multi-Specialty Physician Group</span></>}
+          title={<>Revenue Cycle Improvement for a <span className="text-gold-gradient">Multi-Specialty Physician Group</span></>}
           sub="Your Organization Could Be Our Next Success Story. We become a trusted extension of your healthcare operations team — not just an outsourcing vendor." />
 
         <div className="mt-10 sm:mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Left panel */}
           <FadeUp className="lg:col-span-1">
-            <div className="rounded-2xl p-6 sm:p-8 h-full" style={{ background: "#003087" }}>
+            <div className="rounded-2xl p-6 sm:p-8 h-full" style={{ background: "linear-gradient(135deg,#063842 0%,#0D5C75 100%)", border: "1px solid rgba(212,175,55,0.3)" }}>
               {[
                 { label: "Client Challenge", items: ["High AR aging", "Delayed reimbursements", "Increased claim denials", "Workflow inefficiencies"], icon: AlertTriangle, iconColor: "#FCD34D" },
                 { label: "MedExodus Solution", items: ["Daily AR follow-up workflows", "Denial analysis & appeals management", "Claims correction & resubmission", "Insurance payer escalation support", "Structured operational reporting"], icon: CheckCircle2, iconColor: "#6EE7B7" },
                 { label: "Outcome", items: ["Significant reduction in AR aging", "Faster reimbursement turnaround", "Improved collections performance", "Better operational visibility", "Enhanced workflow efficiency"], icon: TrendingUp, iconColor: "#6EE7B7" },
               ].map(({ label, items, icon: Icon, iconColor }) => (
                 <div key={label} className="mb-7 last:mb-0">
-                  <h3 className="text-base sm:text-lg font-bold mb-3" style={{ color: "#7DD3FC" }}>{label}</h3>
+                  <h3 className="text-base sm:text-lg font-bold mb-3" style={{ color: "#F3D266" }}>{label}</h3>
                   <ul className="space-y-2">
                     {items.map(it => (
                       <li key={it} className="flex gap-2 text-sm" style={{ color: "rgba(255,255,255,0.82)" }}>
@@ -949,7 +949,7 @@ function CaseStudies() {
                 <div className="ah-card ah-card-hover rounded-xl p-5 sm:p-6 h-full">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="flex h-6 w-6 items-center justify-center rounded-full text-xs font-bold shrink-0"
-                      style={{ background: "#003087", color: "#fff" }}>{idx + 1}</span>
+                      style={{ background: "#0D5C75", color: "#fff" }}>{idx + 1}</span>
                     <h4 className="font-bold text-sm sm:text-base" style={{ color: "#111827" }}>{s.title}</h4>
                   </div>
                   <p className="text-sm leading-relaxed" style={{ color: "#4B5563" }}>{s.desc}</p>
@@ -957,8 +957,8 @@ function CaseStudies() {
               </FadeUp>
             ))}
             <FadeUp delay={280} className="sm:col-span-2">
-              <div className="rounded-xl p-5 sm:p-6 flex items-center gap-4 sm:gap-6" style={{ background: "#EFF6FF", border: "1px solid #BFDBFE" }}>
-                <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl shrink-0" style={{ background: "#DBEAFE", color: "#003087" }}>
+              <div className="rounded-xl p-5 sm:p-6 flex items-center gap-4 sm:gap-6" style={{ background: "#E6F7F5", border: "1px solid #99E2D8" }}>
+                <div className="flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-xl shrink-0" style={{ background: "#CCF1EC", color: "#0D5C75" }}>
                   <Award className="h-6 w-6 sm:h-7 sm:w-7" />
                 </div>
                 <div>
@@ -984,26 +984,26 @@ function CTA() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <FadeUp>
           <div className="relative overflow-hidden rounded-2xl p-8 sm:p-12 md:p-16 lg:p-20 text-center"
-            style={{ background: "#003087" }}>
+            style={{ background: "linear-gradient(135deg,#063842 0%,#0D5C75 100%)", border: "1px solid rgba(212,175,55,0.3)", boxShadow: "0 16px 48px rgba(6,56,66,0.35)" }}>
             <div className="absolute inset-0 pointer-events-none" style={{
-              backgroundImage: "radial-gradient(circle at 80% 20%,rgba(255,255,255,0.07) 0%,transparent 55%),radial-gradient(circle at 20% 80%,rgba(255,255,255,0.04) 0%,transparent 55%)"
+              backgroundImage: "radial-gradient(circle at 80% 20%,rgba(243,210,102,0.12) 0%,transparent 55%),radial-gradient(circle at 20% 80%,rgba(0,168,150,0.12) 0%,transparent 55%)"
             }} />
             <div className="relative">
               <div className="inline-flex items-center gap-2 mb-5 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider"
-                style={{ background: "rgba(255,255,255,0.12)", color: "#7DD3FC" }}>
+                style={{ background: "rgba(255,255,255,0.12)", color: "#F3D266", border: "1px solid rgba(243,210,102,0.3)" }}>
                 <TrendingUp className="h-4 w-4" /> Revenue Cycle Experts
               </div>
               <h2 className="font-bold leading-tight" style={{ color: "#fff", fontSize: "clamp(1.75rem,4vw,3rem)" }}>
-                Ready to Optimize <br className="hidden sm:block" />Your Revenue Cycle?
+                Ready to Optimize <br className="hidden sm:block" />Your <span className="text-gold-gradient">Revenue Cycle</span>?
               </h2>
-              <p className="mt-4 sm:mt-5 text-base sm:text-lg max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.75)" }}>
+              <p className="mt-4 sm:mt-5 text-base sm:text-lg max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.85)" }}>
                 Talk to an RCM strategist. We help your organization improve revenue performance, reimbursement efficiency, operational productivity, and coding accuracy.
               </p>
               <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                 <a href="mailto:info@medexodus.com"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-7 py-3.5 text-sm font-bold rounded transition-all"
-                  style={{ background: "#fff", color: "#003087" }}
-                  onMouseEnter={e => { e.currentTarget.style.background = "#EFF6FF"; }}
+                  style={{ background: "#fff", color: "#0D5C75" }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "#E6F7F5"; }}
                   onMouseLeave={e => { e.currentTarget.style.background = "#fff"; }}>
                   Contact Us: info@medexodus.com <ArrowRight className="h-4 w-4" />
                 </a>
@@ -1035,17 +1035,17 @@ function Footer() {
     { h: "Legal", l: [{ name: "Privacy Policy", href: "#contact" }, { name: "Terms of Service", href: "#contact" }, { name: "HIPAA Notice", href: "#contact" }, { name: "Security & SOC 2", href: "#contact" }] },
   ];
   return (
-    <footer style={{ background: "#002060", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
+    <footer style={{ background: "#04272E", borderTop: "1px solid rgba(255,255,255,0.08)" }}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 sm:pt-14 lg:pt-16 pb-8">
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-10">
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <div className="flex items-center gap-2.5">
               <img src={logo} alt="MedExodus" className="h-8 sm:h-9 w-auto object-contain" />
               <span style={{ fontFamily: '"Space Grotesk","Inter",sans-serif', fontWeight: 600, fontSize: "1.05rem", color: "#fff", letterSpacing: "-0.025em" }}>
-                Med<span style={{ color: "#1A8FE3" }}>Exodus</span>
+                Med<span style={{ color: "#F3D266" }}>Exodus</span>
               </span>
             </div>
-            <p className="mt-4 text-sm leading-relaxed max-w-xs" style={{ color: "rgba(255,255,255,0.52)" }}>
+            <p className="mt-4 text-sm leading-relaxed max-w-xs" style={{ color: "rgba(255,255,255,0.65)" }}>
               Enterprise Revenue Cycle Management for U.S. healthcare providers. Purpose-built for measurable financial outcomes.
             </p>
             <div className="mt-5 space-y-2.5">
@@ -1054,22 +1054,22 @@ function Footer() {
                 { i: Mail, t: "info@medexodus.com" },
                 { i: MapPin, t: "1250 Enterprise Way, Dallas, TX 75201" },
               ].map(({ i: Icon, t }) => (
-                <div key={t} className="flex items-start gap-2 text-sm" style={{ color: "rgba(255,255,255,0.58)" }}>
-                  <Icon className="h-4 w-4 shrink-0 mt-0.5" style={{ color: "#7DD3FC" }} />{t}
+                <div key={t} className="flex items-start gap-2 text-sm" style={{ color: "rgba(255,255,255,0.72)" }}>
+                  <Icon className="h-4 w-4 shrink-0 mt-0.5" style={{ color: "#F3D266" }} />{t}
                 </div>
               ))}
             </div>
           </div>
           {cols.map(c => (
             <div key={c.h}>
-              <div className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "rgba(255,255,255,0.38)" }}>{c.h}</div>
+              <div className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "rgba(255,255,255,0.45)" }}>{c.h}</div>
               <ul className="space-y-2.5">
                 {c.l.map(x => (
                   <li key={x.name}>
                     <a href={x.href} className="text-sm transition-colors"
-                      style={{ color: "rgba(255,255,255,0.62)" }}
-                      onMouseEnter={e => e.currentTarget.style.color = "#7DD3FC"}
-                      onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.62)"}>
+                      style={{ color: "rgba(255,255,255,0.70)" }}
+                      onMouseEnter={e => e.currentTarget.style.color = "#F3D266"}
+                      onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.70)"}>
                       {x.name}
                     </a>
                   </li>
