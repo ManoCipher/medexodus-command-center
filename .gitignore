@@ -35,3 +35,4 @@ dist-ssr
 .agent
 .vercel
 docs/MedExodus_Full_Platform_Overview.pdf
+.env*
